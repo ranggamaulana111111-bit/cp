@@ -1,46 +1,77 @@
-# Astro Starter Kit: Basics
+# CV. Chilva Computer - Company Profile
 
-```sh
-npm create astro@latest -- --template basics
+Website company profile CV. Chilva Computer — Mitra terpercaya pengadaan hardware, instalasi CCTV, dan optimasi jaringan.
+
+## Tech Stack
+
+- **Framework:** Astro v7
+- **Styling:** Tailwind CSS v4
+- **Docker:** Nginx Alpine
+- **Tunnel:** Cloudflare Tunnel
+
+## Struktur Project
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+├── src/
+│   ├── components/
+│   │   ├── About.astro
+│   │   ├── Contact.astro
+│   │   ├── Portfolio.astro
+│   │   ├── Procurement.astro
+│   │   └── Testimonials.astro
+│   ├── data/
+│   │   └── company.ts
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── pages/
+│   │   └── index.astro
+│   └── styles/
+│       └── global.css
+├── Dockerfile
+├── docker-compose.yml
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Perintah
 
-## 🧞 Commands
+| Perintah | Fungsi |
+|---|---|
+| `npm install` | Install dependencies |
+| `npm run dev` | Jalankan dev server di `localhost:4321` |
+| `npm run build` | Build untuk production ke `./dist/` |
+| `npm run preview` | Preview hasil build lokal |
 
-All commands are run from the root of the project, from a terminal:
+## Deploy dengan Docker
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+# Build & jalankan
+docker compose up -d --build
 
-## 👀 Want to learn more?
+# Cek status
+docker ps
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+# Log
+docker logs chilva-website
+```
+
+Website akan berjalan di **http://localhost:5551**
+
+## Cloudflare Tunnel
+
+```bash
+# Install cloudflared
+curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
+chmod +x /usr/local/bin/cloudflared
+
+# Jalankan tunnel
+cloudflared tunnel --url http://localhost:5551
+```
+
+## Update Website
+
+```bash
+git pull
+docker compose up -d --build
+```
