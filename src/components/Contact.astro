@@ -1,0 +1,248 @@
+---
+import { company } from '../data/company';
+
+const contactItems = [
+	{
+		label: 'WhatsApp / Telepon',
+		value: company.phoneDisplay,
+		href: company.whatsappUrl,
+		external: true,
+		icon: 'phone',
+	},
+	{
+		label: 'Email',
+		value: company.email,
+		href: `mailto:${company.email}`,
+		external: false,
+		icon: 'mail',
+	},
+	{
+		label: 'Alamat',
+		value: company.address,
+		href: company.mapUrl,
+		external: true,
+		icon: 'pin',
+	},
+	{
+		label: 'Jam Operasional',
+		value: company.hours,
+		href: undefined,
+		external: false,
+		icon: 'clock',
+	},
+];
+
+const rfqMessage =
+	'Halo CV. Chilva Computer, saya ingin berkonsultasi mengenai kebutuhan IT dan keamanan perusahaan saya. Mohon informasinya. Terima kasih.';
+const rfqUrl = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponent(rfqMessage)}`;
+---
+
+<section id="kontak" class="bg-soft-cloud border-t border-hairline">
+	<div class="mx-auto max-w-[1440px] px-8 py-section">
+		<!-- Header -->
+		<div class="mx-auto max-w-3xl">
+			<p class="text-caption-md text-mute uppercase tracking-wider">Kontak</p>
+			<h2 class="mt-3 text-heading-xl text-ink uppercase">
+				{company.contact.headline}
+			</h2>
+			<p class="mt-4 max-w-2xl text-body-md text-charcoal">
+				{company.contact.subtext}
+			</p>
+		</div>
+
+		<!-- Contact Info Cards -->
+		<div class="mt-section grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+			{
+				contactItems.map((item) => (
+					<div class="js-reveal flex flex-col bg-canvas p-6">
+						<span class="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-canvas">
+							{item.icon === 'phone' && (
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="1.75"
+									stroke-linecap="round" stroke-linejoin="round"
+									><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg
+								>
+							)}
+							{item.icon === 'mail' && (
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="1.75"
+									stroke-linecap="round" stroke-linejoin="round"
+									><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 7L2 7" /></svg
+								>
+							)}
+							{item.icon === 'pin' && (
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="1.75"
+									stroke-linecap="round" stroke-linejoin="round"
+									><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" /><circle cx="12" cy="10" r="3" /></svg
+								>
+							)}
+							{item.icon === 'clock' && (
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="1.75"
+									stroke-linecap="round" stroke-linejoin="round"
+									><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg
+								>
+							)}
+						</span>
+						<p class="mt-5 text-caption-sm text-mute uppercase tracking-wider">
+							{item.label}
+						</p>
+						{item.href ? (
+							<a
+								href={item.href}
+								target={item.external ? '_blank' : undefined}
+								rel={item.external ? 'noopener' : undefined}
+								class="mt-1.5 text-body-strong text-ink transition-colors hover:text-charcoal">
+								{item.value}
+							</a>
+						) : (
+							<p class="mt-1.5 text-body-strong text-ink">{item.value}</p>
+						)}
+					</div>
+				))
+			}
+		</div>
+
+		<!-- Form + Benefits -->
+		<div id="form" class="mt-section grid gap-6 lg:grid-cols-2">
+			<div class="bg-canvas p-8">
+				<h3 class="text-heading-md text-ink uppercase">Kirim Kebutuhan Anda</h3>
+				<p class="mt-2 text-body-md text-charcoal">
+					Isi formulir di bawah ini — tim kami akan merespons cepat via WhatsApp.
+				</p>
+
+				<form id="contact-form" data-wa={company.whatsappNumber} class="mt-6 space-y-4">
+					<div class="grid gap-4 sm:grid-cols-2">
+						<label class="block">
+							<span class="mb-1.5 block text-caption-sm text-mute uppercase tracking-wider">Nama</span>
+							<input
+								type="text"
+								id="form-name"
+								required
+								placeholder="Nama Anda"
+								class="w-full border border-hairline bg-soft-cloud px-4 py-3 text-body-md text-ink placeholder:text-stone focus:border-ink focus:outline-none rounded-none"
+							/>
+						</label>
+						<label class="block">
+							<span class="mb-1.5 block text-caption-sm text-mute uppercase tracking-wider">Perusahaan / Instansi</span>
+							<input
+								type="text"
+								id="form-company"
+								placeholder="Nama perusahaan"
+								class="w-full border border-hairline bg-soft-cloud px-4 py-3 text-body-md text-ink placeholder:text-stone focus:border-ink focus:outline-none rounded-none"
+							/>
+						</label>
+					</div>
+					<label class="block">
+						<span class="mb-1.5 block text-caption-sm text-mute uppercase tracking-wider">No. WhatsApp</span>
+						<input
+							type="tel"
+							id="form-phone"
+							required
+							placeholder="08xx-xxxx-xxxx"
+							class="w-full border border-hairline bg-soft-cloud px-4 py-3 text-body-md text-ink placeholder:text-stone focus:border-ink focus:outline-none rounded-none"
+						/>
+					</label>
+					<label class="block">
+						<span class="mb-1.5 block text-caption-sm text-mute uppercase tracking-wider">Kebutuhan</span>
+						<textarea
+							id="form-message"
+							required
+							rows="4"
+							placeholder="Contoh: butuh penawaran harga CCTV 16 titik untuk kantor..."
+							class="w-full resize-none border border-hairline bg-soft-cloud px-4 py-3 text-body-md text-ink placeholder:text-stone focus:border-ink focus:outline-none rounded-none"
+						></textarea>
+					</label>
+					<button
+						type="submit"
+						class="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-ink px-8 text-button-md text-canvas transition-opacity hover:opacity-80">
+						Kirim via WhatsApp
+					</button>
+					<p class="text-center text-caption-sm text-mute">
+						Klik kirim untuk melanjutkan ke WhatsApp — data Anda hanya digunakan untuk menghubungi Anda.
+					</p>
+				</form>
+			</div>
+
+			<div class="flex flex-col gap-4">
+				<div class="bg-canvas p-6">
+					<h3 class="text-body-strong text-ink uppercase">Kenapa memilih CV. Chilva Computer?</h3>
+					<ul class="mt-4 space-y-3">
+						{
+							[
+								'Penawaran harga resmi berlegalitas CV',
+								'Produk bergaransi resmi dari distributor',
+								'Respons cepat &amp; komunikasi jelas',
+								'Dukungan purna jual dan maintenance',
+							].map((item) => (
+								<li class="flex items-start gap-3">
+									<span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink text-canvas">
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3"
+											viewBox="0 0 24 24" fill="none" stroke="currentColor"
+											stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+											><path d="M20 6L9 17l-5-5" /></svg
+										>
+									</span>
+									<span class="text-body-md text-charcoal">{item}</span>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+				<a
+					href={rfqUrl}
+					target="_blank"
+					rel="noopener"
+					class="inline-flex h-12 items-center justify-center gap-2 border border-ink bg-canvas px-8 text-button-md text-ink transition-colors hover:bg-soft-cloud">
+					Minta Penawaran Langsung (RFQ)
+				</a>
+			</div>
+		</div>
+
+		<!-- CTA -->
+		<div class="mt-section bg-canvas p-8 text-center sm:p-12">
+			<div>
+				<h3 class="text-heading-lg text-ink uppercase">
+					Siap Meningkatkan Infrastruktur IT Anda?
+				</h3>
+				<p class="mx-auto mt-3 max-w-2xl text-body-md text-charcoal">
+					Konsultasikan kebutuhan Anda secara gratis bersama tim kami. Kami siap memberikan
+					rekomendasi terbaik sesuai budget dan kebutuhan bisnis Anda.
+				</p>
+				<a
+					href={rfqUrl}
+					target="_blank"
+					rel="noopener"
+					class="mt-8 inline-flex h-12 items-center gap-2.5 rounded-full bg-ink px-8 text-button-md text-canvas transition-opacity hover:opacity-80">
+					Konsultasi Gratis
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		const form = document.getElementById('contact-form');
+		form.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const name = document.getElementById('form-name').value.trim();
+			const company = document.getElementById('form-company').value.trim();
+			const phone = document.getElementById('form-phone').value.trim();
+			const message = document.getElementById('form-message').value.trim();
+
+			const lines = [
+				'Halo CV. Chilva Computer, saya ingin mengajukan kebutuhan berikut:',
+				'',
+				`Nama: ${name}`,
+				company ? `Perusahaan/Instansi: ${company}` : '',
+				`No. WhatsApp: ${phone}`,
+				'',
+				'Kebutuhan:',
+				message,
+			].filter(Boolean);
+
+			const url = `https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(lines.join('\n'))}`;
+			window.open(url, '_blank', 'noopener');
+		});
+	</script>
+</section>

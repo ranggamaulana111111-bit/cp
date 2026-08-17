@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    container_name: chilva-website
+    restart: unless-stopped
+    ports:
+      - "5551:80"

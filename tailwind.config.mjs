@@ -1,0 +1,58 @@
+import colors from 'tailwindcss/colors';
+
+export default {
+	theme: {
+		extend: {
+			colors: {
+				ink: '#111111',
+				canvas: '#ffffff',
+				'soft-cloud': '#f5f5f5',
+				hairline: '#cacacb',
+				'hairline-soft': '#e5e5e5',
+				charcoal: '#39393b',
+				ash: '#4b4b4d',
+				mute: '#707072',
+				stone: '#9e9ea0',
+				sale: '#d30005',
+				'sale-deep': '#780700',
+				success: '#007d48',
+				'success-bright': '#1eaa52',
+				info: '#1151ff',
+				'info-deep': '#0034e3',
+				'accent-teal': '#0a7281',
+			},
+			borderRadius: {
+				none: '0px',
+				sm: '18px',
+				md: '24px',
+				lg: '30px',
+				full: '9999px',
+			},
+			boxShadow: {},
+			spacing: {
+				xxs: '2px',
+				xs: '4px',
+				sm: '8px',
+				md: '12px',
+				lg: '18px',
+				xl: '24px',
+				xxl: '30px',
+				section: '48px',
+			},
+			fontSize: {
+				'heading-xl': ['32px', { lineHeight: '1.2', fontWeight: '500', letterSpacing: '0' }],
+				'heading-lg': ['24px', { lineHeight: '1.2', fontWeight: '500', letterSpacing: '0' }],
+				'heading-md': ['16px', { lineHeight: '1.75', fontWeight: '500', letterSpacing: '0' }],
+				'body-md': ['16px', { lineHeight: '1.5', fontWeight: '400', letterSpacing: '0' }],
+				'body-strong': ['16px', { lineHeight: '1.5', fontWeight: '500', letterSpacing: '0' }],
+				'button-lg': ['24px', { lineHeight: '1.2', fontWeight: '500', letterSpacing: '0' }],
+				'button-md': ['16px', { lineHeight: '1.5', fontWeight: '500', letterSpacing: '0' }],
+				'button-sm': ['14px', { lineHeight: '1.5', fontWeight: '500', letterSpacing: '0' }],
+				'link-md': ['16px', { lineHeight: '1.75', fontWeight: '500', letterSpacing: '0' }],
+				'caption-md': ['14px', { lineHeight: '1.5', fontWeight: '500', letterSpacing: '0' }],
+				'caption-sm': ['12px', { lineHeight: '1.5', fontWeight: '500', letterSpacing: '0' }],
+				'utility-xs': ['9px', { lineHeight: '1.75', fontWeight: '500', letterSpacing: '0' }],
+			},
+		},
+	},
+};

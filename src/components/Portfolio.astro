@@ -1,0 +1,50 @@
+---
+import { company } from '../data/company';
+---
+
+<section id="portofolio" class="bg-soft-cloud border-t border-hairline">
+	<div class="mx-auto max-w-[1440px] px-8 py-section">
+		<!-- Header -->
+		<div class="mx-auto max-w-3xl">
+			<p class="text-caption-md text-mute uppercase tracking-wider">Portofolio</p>
+			<h2 class="mt-3 text-heading-xl text-ink uppercase">
+				PROYEK YANG TELAH KAMI KERJAKAN
+			</h2>
+			<p class="mt-4 max-w-2xl text-body-md text-charcoal">
+				Sebagian proyek pengerjaan pengadaan, jaringan, dan keamanan yang telah kami selesaikan untuk
+				kantor, sekolah, hingga instansi.
+			</p>
+		</div>
+
+		<!-- Grid -->
+		<div class="mt-section grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				company.portfolio.map((project) => (
+					<article class="group js-reveal flex flex-col bg-canvas p-6 transition-colors hover:bg-soft-cloud">
+						<div class="flex items-center justify-between gap-3">
+							<span class="text-caption-sm text-mute uppercase tracking-wider">
+								{project.category}
+							</span>
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-stone transition-colors group-hover:text-ink"
+								viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+								stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path
+									d="M12 5l7 7-7 7" /></svg
+							>
+						</div>
+						<h3 class="mt-4 text-body-strong text-ink">{project.title}</h3>
+						<p class="mt-2 flex-1 text-body-md text-charcoal">{project.desc}</p>
+						<ul class="mt-4 flex flex-wrap gap-1.5">
+							{
+								project.tags.map((tag) => (
+									<li class="border border-hairline bg-canvas px-2 py-0.5 text-caption-sm text-mute">
+										{tag}
+									</li>
+								))
+							}
+						</ul>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>

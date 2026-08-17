@@ -1,0 +1,109 @@
+---
+import { company } from '../data/company';
+
+const valueIconPaths: Record<string, string[]> = {
+	briefcase: ['M21 13.255A23.931 23.931 0 0 1 12 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2m4 6h.01M5 20h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z'],
+	shield: ['M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', 'M9 12l2 2 4-4'],
+	wrench: [
+		'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z',
+	],
+	lightbulb: ['M9 18h6', 'M10 22h4', 'M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2z'],
+};
+---
+
+<section id="tentang" class="bg-canvas border-t border-hairline">
+	<div class="mx-auto max-w-[1440px] px-8 py-section">
+		<!-- Header -->
+		<div class="mx-auto max-w-3xl">
+			<p class="text-caption-md text-mute uppercase tracking-wider">Tentang Kami</p>
+			<h2 class="mt-3 text-heading-xl text-ink uppercase">
+				{company.about.headline}
+			</h2>
+		</div>
+
+		<!-- Company Profile -->
+		<div class="mt-section grid items-start gap-10 lg:grid-cols-5">
+			<div class="space-y-5 lg:col-span-3">
+				{
+					company.about.paragraphs.map((paragraph) => (
+						<p class="text-body-md text-charcoal">{paragraph}</p>
+					))
+				}
+				<div class="flex flex-wrap gap-2 pt-2">
+					<span class="inline-flex items-center gap-2 border border-hairline bg-canvas px-3 py-1.5 text-caption-sm text-ink">
+						{company.legalStatus} Legalitas Resmi
+					</span>
+					<span class="inline-flex items-center gap-2 border border-hairline bg-canvas px-3 py-1.5 text-caption-sm text-ink">
+						Direktur: {company.legal.director}
+					</span>
+					<span class="inline-flex items-center gap-2 border border-hairline bg-canvas px-3 py-1.5 text-caption-sm text-ink">
+						{company.legal.domicile}
+					</span>
+				</div>
+			</div>
+
+			<!-- Visi & Misi -->
+			<div class="space-y-4 lg:col-span-2">
+				<div class="bg-soft-cloud p-6">
+					<span class="text-caption-sm text-mute uppercase tracking-wider">
+						Visi
+					</span>
+					<p class="mt-3 text-body-md text-charcoal">
+						{company.about.visi}
+					</p>
+				</div>
+
+				<div class="bg-soft-cloud p-6">
+					<span class="text-caption-sm text-mute uppercase tracking-wider">
+						Misi
+					</span>
+					<ul class="mt-3 space-y-3">
+						{
+							company.about.misi.map((item) => (
+								<li class="flex items-start gap-3">
+									<span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink text-canvas">
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3"
+											viewBox="0 0 24 24" fill="none" stroke="currentColor"
+											stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+											><path d="M20 6L9 17l-5-5" /></svg
+										>
+									</span>
+									<span class="text-body-md text-charcoal">{item}</span>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Values -->
+		<div class="mt-section">
+			<h2 class="text-heading-xl text-ink uppercase text-center">
+				NILAI YANG KAMI PEGANG
+			</h2>
+			<p class="mx-auto mt-3 max-w-2xl text-center text-body-md text-mute">
+				Prinsip yang menjadi fondasi dalam melayani setiap klien dan mitra.
+			</p>
+
+			<div class="mt-section grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				{
+					company.about.values.map((value) => (
+						<div class="js-reveal bg-soft-cloud p-6">
+							<span class="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-canvas">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="1.75"
+									stroke-linecap="round" stroke-linejoin="round">
+									{valueIconPaths[value.icon].map((d) => <path d={d} />)}
+								</svg>
+							</span>
+							<h4 class="mt-4 text-body-strong text-ink">{value.title}</h4>
+							<p class="mt-2 text-body-md text-charcoal">{value.desc}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+
+	</div>
+</section>

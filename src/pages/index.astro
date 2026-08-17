@@ -1,11 +1,328 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Procurement from '../components/Procurement.astro';
+import About from '../components/About.astro';
+import Portfolio from '../components/Portfolio.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Contact from '../components/Contact.astro';
+import { company } from '../data/company';
 ---
 
 <Layout>
-	<Welcome />
+	<!-- Primary Nav -->
+	<header class="sticky top-0 z-50 border-b border-hairline bg-canvas">
+		<nav class="mx-auto flex max-w-[1440px] items-center justify-between px-8 h-16">
+			<a href="#beranda" class="flex items-center gap-2">
+				<span class="flex h-8 w-8 items-center justify-center rounded-full bg-ink text-canvas text-caption-sm font-medium">CV</span>
+				<span class="text-body-strong text-ink hidden sm:inline">{company.shortName}</span>
+			</a>
+
+			<ul class="hidden items-center gap-8 lg:flex">
+				{
+					company.navLinks.map((link) => (
+						<li>
+							<a href={link.href} class="nav-link text-body-strong text-ink hover:text-charcoal transition-colors py-1">{link.label}</a>
+						</li>
+					))
+				}
+			</ul>
+
+			<div class="flex items-center gap-4">
+				<a
+					href={company.hero.primaryUrl}
+					target="_blank"
+					rel="noopener"
+					class="hidden items-center gap-2 rounded-full bg-ink px-6 py-2.5 text-button-md text-canvas transition-opacity hover:opacity-80 lg:inline-flex">
+					{company.hero.primaryCta}
+				</a>
+
+				<button
+					id="menu-toggle"
+					type="button"
+					aria-expanded="false"
+					aria-controls="mobile-menu"
+					aria-label="Buka menu navigasi"
+					class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-soft-cloud text-ink lg:hidden">
+					<svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+						fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+						stroke-linejoin="round"><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /></svg
+					>
+					<svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5"
+						viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+						stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12" /><path
+							d="M18 6L6 18" /></svg
+					>
+				</button>
+			</div>
+		</nav>
+
+		<!-- Mobile Menu -->
+		<div id="mobile-menu" class="hidden border-t border-hairline bg-canvas lg:hidden">
+			<div class="space-y-1 px-4 py-4">
+				{
+					company.navLinks.map((link) => (
+						<a
+							href={link.href}
+							class="block px-4 py-3 text-body-strong text-ink transition-colors hover:bg-soft-cloud"
+							>{link.label}</a
+						>
+					))
+				}
+				<a
+					href={company.hero.primaryUrl}
+					target="_blank"
+					rel="noopener"
+					class="mt-3 flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-button-md text-canvas">
+					{company.hero.primaryCta}
+				</a>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<!-- Hero — Campaign Style -->
+		<section id="beranda" class="relative bg-canvas overflow-hidden">
+			<div class="absolute inset-0 bg-soft-cloud"></div>
+			<div class="relative mx-auto max-w-[1440px] px-8 pt-20 pb-20 sm:pt-28 sm:pb-24">
+				<div class="mx-auto max-w-5xl">
+
+					<h1 class="mt-6 font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase text-ink leading-none tracking-tight">
+						{company.hero.headline.map((line, i) => (
+							<span class="block">{line}</span>
+						))}
+					</h1>
+
+					<div class="mt-10 flex flex-wrap gap-4">
+						<a
+							href={company.hero.primaryUrl}
+							target="_blank"
+							rel="noopener"
+							class="inline-flex h-12 items-center gap-2 rounded-full bg-ink px-8 text-button-md text-canvas transition-opacity hover:opacity-80">
+							{company.hero.primaryCta}
+						</a>
+						<a
+							href={company.hero.secondaryUrl}
+							class="inline-flex h-12 items-center gap-2 rounded-full bg-soft-cloud px-8 text-button-md text-ink transition-colors hover:bg-hairline-soft">
+							{company.hero.secondaryCta}
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Statistics Bar -->
+		<section aria-label="Statistik" class="border-y border-hairline bg-canvas">
+			<div class="mx-auto grid max-w-[1440px] grid-cols-2 gap-y-8 px-8 py-12 lg:grid-cols-4">
+				{
+					company.stats.map((stat) => (
+						<div class="flex flex-col items-center gap-1 text-center">
+							<span class="text-heading-xl text-ink">
+								{stat.value}
+							</span>
+							<span class="text-caption-md text-mute uppercase tracking-wider">
+								{stat.label}
+							</span>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<Procurement />
+		<About />
+		<Portfolio />
+		<Testimonials />
+		<Contact />
+
+		<!-- Help Band -->
+		<section class="border-t border-hairline bg-soft-cloud">
+			<div class="mx-auto max-w-[1440px] px-8 py-section text-center">
+				<h2 class="text-heading-xl text-ink uppercase">
+					Butuh Bantuan?
+				</h2>
+				<p class="mx-auto mt-4 max-w-2xl text-body-md text-charcoal">
+					Tim kami siap membantu Anda menemukan solusi IT yang tepat untuk bisnis Anda.
+				</p>
+				<div class="mt-8 flex flex-wrap justify-center gap-4">
+					<a
+					 href={company.whatsappUrl}
+					 target="_blank"
+					 rel="noopener"
+					 class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-ink px-8 text-button-md text-canvas transition-opacity hover:opacity-80">
+						Chat Langsung
+					</a>
+					<a
+					 href="#kontak"
+					 class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-canvas px-8 text-button-md text-ink border border-hairline transition-colors hover:bg-soft-cloud">
+						Hubungi Kami
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Footer -->
+	<footer class="border-t border-hairline bg-canvas">
+		<div class="mx-auto max-w-[1440px] px-8 py-14">
+			<div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+				<div>
+					<a href="#beranda" class="flex items-center gap-2">
+						<span class="flex h-8 w-8 items-center justify-center rounded-full bg-ink text-canvas text-caption-sm font-medium">CV</span>
+						<span class="text-body-strong text-ink">{company.name}</span>
+					</a>
+					<p class="mt-4 text-body-md text-mute leading-relaxed">
+						Mitra terpercaya untuk pengadaan perangkat, jaringan, dan keamanan IT bagi bisnis dan
+						instansi Anda.
+					</p>
+				</div>
+
+				<div>
+					<h3 class="text-body-strong text-ink uppercase tracking-wider">Navigasi</h3>
+					<ul class="mt-4 space-y-2.5">
+						{
+							company.navLinks.map((link) => (
+								<li>
+									<a href={link.href} class="text-caption-md text-mute transition-colors hover:text-ink">
+										{link.label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+
+				<div>
+					<h3 class="text-body-strong text-ink uppercase tracking-wider">Layanan</h3>
+					<ul class="mt-4 space-y-2.5">
+						{
+							company.services.map((service) => (
+								<li>
+									<span class="text-caption-md text-mute">{service.name}</span>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+
+				<div>
+					<h3 class="text-body-strong text-ink uppercase tracking-wider">Kontak</h3>
+					<ul class="mt-4 space-y-2.5 text-caption-md text-mute">
+						<li>{company.phoneDisplay}</li>
+						<li>
+							<a href={`mailto:${company.email}`} class="transition-colors hover:text-ink"
+								>{company.email}</a
+							>
+						</li>
+						<li>{company.address}</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="mt-12 border-t border-hairline pt-6">
+				<p class="text-utility-xs text-mute text-center sm:text-left">&copy; {new Date().getFullYear()} {company.legalName}. Seluruh hak cipta dilindungi. {company.legal.domicile}</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Back to top -->
+	<button
+		id="back-to-top"
+		type="button"
+		aria-label="Kembali ke atas"
+		class="fixed right-5 bottom-5 z-50 hidden h-10 w-10 items-center justify-center rounded-full bg-soft-cloud border border-hairline text-ink transition-colors hover:bg-canvas">
+		<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"
+			stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+			><path d="M12 19V5" /><path d="m5 12 7-7 7 7" /></svg
+		>
+	</button>
+
+	<script>
+		const toggle = document.getElementById('menu-toggle');
+		const menu = document.getElementById('mobile-menu');
+		const openIcon = document.getElementById('menu-icon-open');
+		const closeIcon = document.getElementById('menu-icon-close');
+
+		function setMenu(open) {
+			menu.classList.toggle('hidden', !open);
+			openIcon.classList.toggle('hidden', open);
+			closeIcon.classList.toggle('hidden', !open);
+			toggle.setAttribute('aria-expanded', String(open));
+		}
+
+		toggle.addEventListener('click', () => {
+			setMenu(menu.classList.contains('hidden'));
+		});
+
+		menu.querySelectorAll('a').forEach((link) => {
+			link.addEventListener('click', () => setMenu(false));
+		});
+
+		const sections = ['beranda', 'layanan', 'tentang', 'portofolio', 'kontak']
+			.map((id) => document.getElementById(id))
+			.filter(Boolean);
+		const navAnchors = [
+			...document.querySelectorAll('header nav ul a'),
+			...document.querySelectorAll('#mobile-menu a'),
+		];
+
+		function syncActiveSection() {
+			const pos = window.scrollY + 100;
+			let current = 'beranda';
+			for (const section of sections) {
+				if (section.offsetTop <= pos) current = section.id;
+			}
+			navAnchors.forEach((anchor) => {
+				const active = anchor.getAttribute('href') === `#${current}`;
+				anchor.classList.toggle('font-semibold', active);
+				anchor.classList.toggle('border-b-2', active);
+				anchor.classList.toggle('border-ink', active);
+			});
+		}
+
+		const backToTop = document.getElementById('back-to-top');
+		function syncBackToTop() {
+			backToTop.classList.toggle('hidden', window.scrollY < 600);
+		}
+
+		window.addEventListener('scroll', () => {
+			syncActiveSection();
+			syncBackToTop();
+		});
+		syncActiveSection();
+		syncBackToTop();
+
+		backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+		const revealEls = document.querySelectorAll('.js-reveal');
+		if ('IntersectionObserver' in window) {
+			const observer = new IntersectionObserver(
+				(entries) => {
+					for (const entry of entries) {
+						if (entry.isIntersecting) {
+							const el = entry.target;
+							el.classList.add('is-visible');
+							observer.unobserve(el);
+							const settle = () => {
+								el.classList.remove('js-reveal');
+								el.style.transitionDelay = '';
+							};
+							el.addEventListener('transitionend', settle, { once: true });
+							setTimeout(() => {
+								if (el.classList.contains('js-reveal')) settle();
+							}, 1500);
+						}
+					}
+				},
+				{ threshold: 0.12 }
+			);
+			let revealIndex = 0;
+			revealEls.forEach((el) => {
+				el.style.transitionDelay = `${(revealIndex % 6) * 60}ms`;
+				revealIndex += 1;
+				observer.observe(el);
+			});
+		} else {
+			revealEls.forEach((el) => el.classList.remove('js-reveal'));
+		}
+	</script>
 </Layout>
