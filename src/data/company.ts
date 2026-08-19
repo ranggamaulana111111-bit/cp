@@ -12,12 +12,12 @@ export const company = {
 		deedAmendment: 'No. 01 Tanggal 02-03-2024 (Notaris MUHAMMAD ARFAN, S.H., Kota Serang)',
 		domicile: 'Kabupaten Serang, Provinsi Banten',
 	},
-	address: 'Ds. Semenjangan, Kec. Gunungsari, Kab. Serang, Banten',
-	email: 'halo@chilvacomputer.id',
+	address: 'Kp. Simenjangan, Desa Tamiang, Kec. Gunungsari, Kab. Serang, Banten',
+	email: 'Chilvacomputer@gmail.com',
 	phoneDisplay: '+62 877-7135-1338',
 	whatsappNumber: '6287771351338',
 	hours: 'Senin - Jumat, 08.00 - 17.00 WIB',
-	mapUrl: 'https://maps.google.com/?q=Semenjangan+Gunungsari+Serang+Banten',
+	mapUrl: 'https://maps.google.com/?q=Tamiang+Gunungsari+Serang+Banten',
 	whatsappUrl: `https://wa.me/${'6287771351338'}?text=${encodeURIComponent(
 		'Halo, saya ingin berkonsultasi mengenai proyek Pengadan Barang Dan IT bersama CV. Chilva Computer.'
 	)}`,
