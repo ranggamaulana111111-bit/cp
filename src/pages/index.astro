@@ -1,159 +1,178 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Procurement from '../components/Procurement.astro';
+import Services from '../components/Services.astro';
 import About from '../components/About.astro';
+import WhyUs from '../components/WhyUs.astro';
 import Portfolio from '../components/Portfolio.astro';
+import Legalitas from '../components/Legalitas.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Contact from '../components/Contact.astro';
 import { company } from '../data/company';
 ---
 
 <Layout>
-	<!-- Primary Nav -->
-	<header class="sticky top-0 z-50 border-b border-hairline bg-canvas">
-		<nav class="mx-auto flex max-w-[1440px] items-center justify-between px-8 h-16">
-			<a href="#beranda" class="flex items-center gap-2">
-				<span class="flex h-8 w-8 items-center justify-center rounded-full bg-ink text-canvas text-caption-sm font-medium">CV</span>
-				<span class="text-body-strong text-ink hidden sm:inline">{company.shortName}</span>
+	<header class="w-full fixed top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-stone-200/60">
+		<div class="max-w-6xl mx-auto px-6 lg:px-8 h-[72px] flex items-center">
+			<a href="#" class="flex items-center gap-2.5 mr-auto">
+				<span class="text-xl font-extrabold tracking-tight text-ink">Chilva</span>
+				<span class="text-xl font-light text-stone-400">Computer</span>
 			</a>
 
-			<ul class="hidden items-center gap-8 lg:flex">
-				{
-					company.navLinks.map((link) => (
-						<li>
-							<a href={link.href} class="nav-link text-body-strong text-ink hover:text-charcoal transition-colors py-1">{link.label}</a>
-						</li>
-					))
-				}
-			</ul>
-
-			<div class="flex items-center gap-4">
+			<div class="hidden md:flex items-center gap-8">
+				<nav class="flex items-center gap-8 text-[15px] font-medium text-mute">
+					<a href="#layanan" class="hover:text-ink transition-colors duration-200">Layanan</a>
+					<a href="#tentang" class="hover:text-ink transition-colors duration-200">Tentang</a>
+					<a href="#portofolio" class="hover:text-ink transition-colors duration-200">Portofolio</a>
+					<a href="#kontak" class="hover:text-ink transition-colors duration-200">Kontak</a>
+				</nav>
 				<a
 					href={company.hero.primaryUrl}
 					target="_blank"
 					rel="noopener"
-					class="hidden items-center gap-2 rounded-full bg-ink px-6 py-2.5 text-button-md text-canvas transition-opacity hover:opacity-80 lg:inline-flex">
-					{company.hero.primaryCta}
+					class="inline-flex items-center gap-2 bg-ink text-white text-[15px] font-semibold px-6 py-2.5 rounded-full hover:bg-ink/90 transition-all duration-200">
+					Konsultasi
 				</a>
-
-				<button
-					id="menu-toggle"
-					type="button"
-					aria-expanded="false"
-					aria-controls="mobile-menu"
-					aria-label="Buka menu navigasi"
-					class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-soft-cloud text-ink lg:hidden">
-					<svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
-						fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-						stroke-linejoin="round"><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /></svg
-					>
-					<svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5"
-						viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-						stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12" /><path
-							d="M18 6L6 18" /></svg
-					>
-				</button>
 			</div>
-		</nav>
 
-		<!-- Mobile Menu -->
-		<div id="mobile-menu" class="hidden border-t border-hairline bg-canvas lg:hidden">
-			<div class="space-y-1 px-4 py-4">
-				{
-					company.navLinks.map((link) => (
-						<a
-							href={link.href}
-							class="block px-4 py-3 text-body-strong text-ink transition-colors hover:bg-soft-cloud"
-							>{link.label}</a
-						>
-					))
-				}
-				<a
-					href={company.hero.primaryUrl}
-					target="_blank"
-					rel="noopener"
-					class="mt-3 flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-button-md text-canvas">
-					{company.hero.primaryCta}
-				</a>
+			<button id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" class="md:hidden flex flex-col gap-1.5 p-2 ml-auto">
+				<span id="menu-icon-open" class="block w-5 h-[1.5px] bg-ink rounded-full transition-all"></span>
+				<span class="block w-5 h-[1.5px] bg-ink rounded-full transition-all"></span>
+				<span id="menu-icon-close" class="hidden block w-5 h-[1.5px] bg-ink rounded-full rotate-45 translate-y-[4.5px] transition-all"></span>
+			</button>
+		</div>
+
+		<div id="mobile-menu" class="hidden md:hidden border-t border-stone-200/60 bg-white/95 backdrop-blur-xl">
+			<div class="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-4">
+				<a href="#layanan" class="text-[15px] font-medium text-mute hover:text-ink transition-colors">Layanan</a>
+				<a href="#tentang" class="text-[15px] font-medium text-mute hover:text-ink transition-colors">Tentang</a>
+				<a href="#portofolio" class="text-[15px] font-medium text-mute hover:text-ink transition-colors">Portofolio</a>
+				<a href="#kontak" class="text-[15px] font-medium text-mute hover:text-ink transition-colors">Kontak</a>
+				<a href={company.hero.primaryUrl} target="_blank" rel="noopener" class="mt-2 inline-flex items-center justify-center bg-ink text-white text-[15px] font-semibold px-6 py-3 rounded-full hover:bg-ink/90 transition-all">Konsultasi</a>
 			</div>
 		</div>
 	</header>
 
 	<main>
-		<!-- Hero — Campaign Style -->
-		<section id="beranda" class="relative bg-canvas overflow-hidden">
-			<div class="absolute inset-0 bg-soft-cloud"></div>
-			<div class="relative mx-auto max-w-[1440px] px-8 pt-20 pb-20 sm:pt-28 sm:pb-24">
-				<div class="mx-auto max-w-5xl">
+		<!-- Hero -->
+		<section class="w-full pt-[120px] pb-14 lg:pt-[130px] lg:pb-20">
+			<div class="max-w-6xl mx-auto px-6 lg:px-8">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+					<!-- Left: Text -->
+					<div>
+						<h1 class="text-[clamp(2.5rem,5vw,4rem)] font-extrabold text-ink leading-[1.08] tracking-[-0.025em]">
+							Mitra Terpercaya Pengadaan Hardware, CCTV & Jaringan
+						</h1>
+						<p class="mt-7 text-body-lg text-mute leading-relaxed">
+							Solusi terpadu pengadaan barang IT, instalasi CCTV, dan optimasi jaringan — mulai dari konsultasi, pemasangan, hingga perawatan berkala untuk bisnis dan instansi Anda.
+						</p>
+						<div class="mt-10 flex flex-col sm:flex-row items-start gap-4">
+							<a
+								href={company.hero.primaryUrl}
+								target="_blank"
+								rel="noopener"
+								class="inline-flex items-center justify-center gap-2 bg-ink text-white font-semibold text-[15px] px-8 py-3.5 rounded-full hover:bg-ink/90 transition-all duration-200">
+								Konsultasi Gratis
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+							</a>
+							<a
+								href="#layanan"
+								class="inline-flex items-center justify-center gap-2 text-mute font-semibold text-[15px] px-8 py-3.5 rounded-full border border-stone-200 hover:border-stone-300 hover:text-ink transition-all duration-200">
+								Lihat Layanan
+							</a>
+						</div>
+					</div>
 
-					<h1 class="mt-6 font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase text-ink leading-none tracking-tight">
-						{company.hero.headline.map((line, i) => (
-							<span class="block">{line}</span>
-						))}
-					</h1>
+					<!-- Right: Company Documentation Visual -->
+					<div class="hidden lg:block lg:mt-0">
+						<div>
+							<!-- Main card -->
+							<div class="bg-white rounded-3xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-stone-100">
+								<div class="flex items-center gap-3 mb-6">
+									<div class="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white text-[13px] font-bold">CV</div>
+									<div>
+										<p class="text-[15px] font-semibold text-ink">CV. Chilva Computer</p>
+										<p class="text-[13px] text-stone-400">IT & Security Provider</p>
+									</div>
+								</div>
 
-					<div class="mt-10 flex flex-wrap gap-4">
-						<a
-							href={company.hero.primaryUrl}
-							target="_blank"
-							rel="noopener"
-							class="inline-flex h-12 items-center gap-2 rounded-full bg-ink px-8 text-button-md text-canvas transition-opacity hover:opacity-80">
-							{company.hero.primaryCta}
-						</a>
-						<a
-							href={company.hero.secondaryUrl}
-							class="inline-flex h-12 items-center gap-2 rounded-full bg-soft-cloud px-8 text-button-md text-ink transition-colors hover:bg-hairline-soft">
-							{company.hero.secondaryCta}
-						</a>
+								<div class="space-y-4">
+									<div class="flex items-center gap-3 p-3 rounded-xl bg-stone-50">
+										<div class="w-8 h-8 rounded-lg bg-stone-200/60 flex items-center justify-center">
+											<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+										</div>
+										<div>
+											<p class="text-[13px] font-semibold text-ink">Pengadaan Hardware</p>
+											<p class="text-[12px] text-stone-400">Server, Workstation, Networking</p>
+										</div>
+									</div>
+									<div class="flex items-center gap-3 p-3 rounded-xl bg-stone-50">
+										<div class="w-8 h-8 rounded-lg bg-stone-200/60 flex items-center justify-center">
+											<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+										</div>
+										<div>
+											<p class="text-[13px] font-semibold text-ink">Instalasi CCTV 24/7</p>
+											<p class="text-[12px] text-stone-400">IP Camera, NVR, Monitoring</p>
+										</div>
+									</div>
+									<div class="flex items-center gap-3 p-3 rounded-xl bg-stone-50">
+										<div class="w-8 h-8 rounded-lg bg-stone-200/60 flex items-center justify-center">
+											<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+										</div>
+										<div>
+											<p class="text-[13px] font-semibold text-ink">Optimasi Jaringan</p>
+											<p class="text-[12px] text-stone-400">LAN, Wi-Fi, Fiber Optic</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Statistics Bar -->
-		<section aria-label="Statistik" class="border-y border-hairline bg-canvas">
-			<div class="mx-auto grid max-w-[1440px] grid-cols-2 gap-y-8 px-8 py-12 lg:grid-cols-4">
+		<!-- Stats -->
+		<section class="border-y border-stone-200/60 bg-white">
+			<div class="max-w-6xl mx-auto px-6 lg:px-8 py-12 lg:py-14 grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
 				{
 					company.stats.map((stat) => (
-						<div class="flex flex-col items-center gap-1 text-center">
-							<span class="text-heading-xl text-ink">
-								{stat.value}
-							</span>
-							<span class="text-caption-md text-mute uppercase tracking-wider">
-								{stat.label}
-							</span>
+						<div class="text-center">
+							<span class="block text-display text-ink">{stat.value}</span>
+							<span class="mt-2 block text-utility-xs uppercase tracking-[0.15em] text-mute">{stat.label}</span>
 						</div>
 					))
 				}
 			</div>
 		</section>
 
-		<Procurement />
+		<Services />
 		<About />
+		<WhyUs />
 		<Portfolio />
+		<Legalitas />
 		<Testimonials />
 		<Contact />
 
-		<!-- Help Band -->
-		<section class="border-t border-hairline bg-soft-cloud">
-			<div class="mx-auto max-w-[1440px] px-8 py-section text-center">
-				<h2 class="text-heading-xl text-ink uppercase">
-					Butuh Bantuan?
+		<!-- CTA Band -->
+		<section class="py-12 bg-slate-100/70 text-center">
+			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+				<h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">
+					Siap Meningkatkan Infrastruktur IT Anda?
 				</h2>
-				<p class="mx-auto mt-4 max-w-2xl text-body-md text-charcoal">
-					Tim kami siap membantu Anda menemukan solusi IT yang tepat untuk bisnis Anda.
+				<p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-8">
+					Siap bantu dari konsultasi hingga pemasangan — tanpa biaya, tanpa komitmen.
 				</p>
-				<div class="mt-8 flex flex-wrap justify-center gap-4">
+				<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
 					<a
-					 href={company.whatsappUrl}
-					 target="_blank"
-					 rel="noopener"
-					 class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-ink px-8 text-button-md text-canvas transition-opacity hover:opacity-80">
+						href={company.whatsappUrl}
+						target="_blank"
+						rel="noopener"
+						class="bg-gray-900 hover:bg-black text-white font-bold px-8 py-3.5 rounded-full transition-all shadow-md text-sm">
 						Chat Langsung
 					</a>
 					<a
-					 href="#kontak"
-					 class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-canvas px-8 text-button-md text-ink border border-hairline transition-colors hover:bg-soft-cloud">
+						href="#kontak"
+						class="border border-gray-300 hover:bg-white text-gray-800 font-semibold px-8 py-3.5 rounded-full transition-all text-sm">
 						Hubungi Kami
 					</a>
 				</div>
@@ -162,64 +181,67 @@ import { company } from '../data/company';
 	</main>
 
 	<!-- Footer -->
-	<footer class="border-t border-hairline bg-canvas">
-		<div class="mx-auto max-w-[1440px] px-8 py-14">
-			<div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-				<div>
-					<a href="#beranda" class="flex items-center gap-2">
-						<span class="flex h-8 w-8 items-center justify-center rounded-full bg-ink text-canvas text-caption-sm font-medium">CV</span>
-						<span class="text-body-strong text-ink">{company.name}</span>
-					</a>
-					<p class="mt-4 text-body-md text-mute leading-relaxed">
-						Mitra terpercaya untuk pengadaan perangkat, jaringan, dan keamanan IT bagi bisnis dan
-						instansi Anda.
+	<footer class="bg-canvas border-t border-stone-200/60">
+		<div class="max-w-6xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
+			<div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8">
+				<!-- Brand -->
+				<div class="md:col-span-5">
+					<div class="flex items-center gap-2.5">
+						<span class="text-xl font-extrabold tracking-tight text-ink">Chilva</span>
+						<span class="text-xl font-light text-stone-400">Computer</span>
+					</div>
+					<p class="mt-4 text-body-md text-mute leading-relaxed max-w-sm">
+						{company.address}
 					</p>
+					<div class="mt-6 flex items-center gap-4">
+						<a href={`mailto:${company.email}`} class="text-sm text-mute hover:text-ink transition-colors" aria-label="Email">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+						</a>
+						<a href={company.whatsappUrl} target="_blank" rel="noopener" class="text-sm text-mute hover:text-ink transition-colors" aria-label="WhatsApp">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+						</a>
+						<a href={company.mapUrl} target="_blank" rel="noopener" class="text-sm text-mute hover:text-ink transition-colors" aria-label="Lokasi">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+						</a>
+					</div>
 				</div>
 
-				<div>
-					<h3 class="text-body-strong text-ink uppercase tracking-wider">Navigasi</h3>
-					<ul class="mt-4 space-y-2.5">
-						{
-							company.navLinks.map((link) => (
-								<li>
-									<a href={link.href} class="text-caption-md text-mute transition-colors hover:text-ink">
-										{link.label}
-									</a>
-								</li>
-							))
-						}
+				<!-- Links -->
+				<div class="md:col-span-3">
+					<h3 class="text-[13px] font-semibold uppercase tracking-[0.15em] text-ink mb-5">Navigasi</h3>
+					<ul class="space-y-3 text-[15px]">
+						<li><a href="#layanan" class="text-mute hover:text-ink transition-colors">Layanan</a></li>
+						<li><a href="#tentang" class="text-mute hover:text-ink transition-colors">Tentang Kami</a></li>
+						<li><a href="#portofolio" class="text-mute hover:text-ink transition-colors">Portofolio</a></li>
+						<li><a href="#kontak" class="text-mute hover:text-ink transition-colors">Kontak</a></li>
 					</ul>
 				</div>
 
-				<div>
-					<h3 class="text-body-strong text-ink uppercase tracking-wider">Layanan</h3>
-					<ul class="mt-4 space-y-2.5">
-						{
-							company.services.map((service) => (
-								<li>
-									<span class="text-caption-md text-mute">{service.name}</span>
-								</li>
-							))
-						}
+				<!-- Services -->
+				<div class="md:col-span-2">
+					<h3 class="text-[13px] font-semibold uppercase tracking-[0.15em] text-ink mb-5">Layanan</h3>
+					<ul class="space-y-3 text-[15px]">
+						<li><a href="#layanan" class="text-mute hover:text-ink transition-colors">Jaringan & FTTH</a></li>
+						<li><a href="#layanan" class="text-mute hover:text-ink transition-colors">CCTV Enterprise</a></li>
+						<li><a href="#layanan" class="text-mute hover:text-ink transition-colors">Server & Data Center</a></li>
 					</ul>
 				</div>
 
-				<div>
-					<h3 class="text-body-strong text-ink uppercase tracking-wider">Kontak</h3>
-					<ul class="mt-4 space-y-2.5 text-caption-md text-mute">
+				<!-- Contact -->
+				<div class="md:col-span-2">
+					<h3 class="text-[13px] font-semibold uppercase tracking-[0.15em] text-ink mb-5">Kontak</h3>
+					<ul class="space-y-3 text-[15px] text-mute">
 						<li>{company.phoneDisplay}</li>
-						<li>
-							<a href={`mailto:${company.email}`} class="transition-colors hover:text-ink"
-								>{company.email}</a
-							>
-						</li>
-						<li>{company.address}</li>
+						<li class="break-all"><a href={`mailto:${company.email}`} class="hover:text-ink transition-colors">{company.email}</a></li>
+						<li>{company.hours}</li>
 					</ul>
 				</div>
 			</div>
 
-			<div class="mt-12 border-t border-hairline pt-6">
-				<p class="text-utility-xs text-mute text-center sm:text-left">&copy; {new Date().getFullYear()} {company.legalName}. Seluruh hak cipta dilindungi. {company.legal.domicile}</p>
+			<!-- Bottom -->
+			<div class="mt-10 pt-6 border-t border-stone-200/60 flex flex-col sm:flex-row items-center justify-between text-[13px] text-stone-400">
+				<p>&copy; 2026 CV Chilva Computer. All rights reserved.</p>
+				<p class="mt-2 sm:mt-0">{company.legal.domicile}</p>
 			</div>
 		</div>
 	</footer>
@@ -229,7 +251,7 @@ import { company } from '../data/company';
 		id="back-to-top"
 		type="button"
 		aria-label="Kembali ke atas"
-		class="fixed right-5 bottom-5 z-50 hidden h-10 w-10 items-center justify-center rounded-full bg-soft-cloud border border-hairline text-ink transition-colors hover:bg-canvas">
+		class="fixed right-5 bottom-5 z-50 hidden h-11 w-11 items-center justify-center rounded-full bg-white border border-stone-200 text-ink shadow-sm transition-all duration-200 hover:shadow-md">
 		<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"
 			stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
 			><path d="M12 19V5" /><path d="m5 12 7-7 7 7" /></svg
@@ -261,7 +283,7 @@ import { company } from '../data/company';
 			.map((id) => document.getElementById(id))
 			.filter(Boolean);
 		const navAnchors = [
-			...document.querySelectorAll('header nav ul a'),
+			...document.querySelectorAll('header nav a'),
 			...document.querySelectorAll('#mobile-menu a'),
 		];
 
@@ -272,10 +294,10 @@ import { company } from '../data/company';
 				if (section.offsetTop <= pos) current = section.id;
 			}
 			navAnchors.forEach((anchor) => {
-				const active = anchor.getAttribute('href') === `#${current}`;
-				anchor.classList.toggle('font-semibold', active);
-				anchor.classList.toggle('border-b-2', active);
-				anchor.classList.toggle('border-ink', active);
+				const href = anchor.getAttribute('href');
+				const active = href === `#${current}`;
+				anchor.classList.toggle('text-ink', active);
+				anchor.classList.toggle('text-mute', !active);
 			});
 		}
 
@@ -313,11 +335,11 @@ import { company } from '../data/company';
 						}
 					}
 				},
-				{ threshold: 0.12 }
+				{ threshold: 0.1 }
 			);
 			let revealIndex = 0;
 			revealEls.forEach((el) => {
-				el.style.transitionDelay = `${(revealIndex % 6) * 60}ms`;
+				el.style.transitionDelay = `${(revealIndex % 6) * 80}ms`;
 				revealIndex += 1;
 				observer.observe(el);
 			});

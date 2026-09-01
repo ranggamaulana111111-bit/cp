@@ -37,186 +37,136 @@ const rfqMessage =
 const rfqUrl = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponent(rfqMessage)}`;
 ---
 
-<section id="kontak" class="bg-soft-cloud border-t border-hairline">
-	<div class="mx-auto max-w-[1440px] px-8 py-section">
-		<!-- Header -->
-		<div class="mx-auto max-w-3xl">
-			<p class="text-caption-md text-mute uppercase tracking-wider">Kontak</p>
-			<h2 class="mt-3 text-heading-xl text-ink uppercase">
-				{company.contact.headline}
-			</h2>
-			<p class="mt-4 max-w-2xl text-body-md text-charcoal">
+<section id="kontak" class="bg-canvas py-14 lg:py-20 border-t border-stone-200/60">
+	<div class="max-w-6xl mx-auto px-6 lg:px-8">
+		<div class="max-w-2xl">
+			<p class="text-utility-xs uppercase tracking-[0.2em] text-mute mb-4">Kontak</p>
+			<h2 class="text-heading-xl text-ink">{company.contact.headline}</h2>
+			<p class="mt-5 text-body-lg text-mute leading-relaxed">
 				{company.contact.subtext}
 			</p>
 		</div>
 
-		<!-- Contact Info Cards -->
-		<div class="mt-section grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+		<!-- Contact Info -->
+		<div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 			{
 				contactItems.map((item) => (
-					<div class="js-reveal flex flex-col bg-canvas p-6">
-						<span class="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-canvas">
+					<div class="js-reveal">
+						<div class="w-9 h-9 rounded-full bg-stone-100 flex items-center justify-center mb-4">
 							{item.icon === 'phone' && (
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
-									fill="none" stroke="currentColor" stroke-width="1.75"
-									stroke-linecap="round" stroke-linejoin="round"
-									><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg
-								>
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
 							)}
 							{item.icon === 'mail' && (
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
-									fill="none" stroke="currentColor" stroke-width="1.75"
-									stroke-linecap="round" stroke-linejoin="round"
-									><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 7L2 7" /></svg
-								>
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
 							)}
 							{item.icon === 'pin' && (
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
-									fill="none" stroke="currentColor" stroke-width="1.75"
-									stroke-linecap="round" stroke-linejoin="round"
-									><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" /><circle cx="12" cy="10" r="3" /></svg
-								>
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
 							)}
 							{item.icon === 'clock' && (
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
-									fill="none" stroke="currentColor" stroke-width="1.75"
-									stroke-linecap="round" stroke-linejoin="round"
-									><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg
-								>
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
 							)}
-						</span>
-						<p class="mt-5 text-caption-sm text-mute uppercase tracking-wider">
-							{item.label}
-						</p>
+						</div>
+						<p class="text-[13px] font-medium text-stone-400 uppercase tracking-wider">{item.label}</p>
 						{item.href ? (
 							<a
 								href={item.href}
 								target={item.external ? '_blank' : undefined}
 								rel={item.external ? 'noopener' : undefined}
-								class="mt-1.5 text-body-strong text-ink transition-colors hover:text-charcoal">
+								class="mt-1.5 block text-[15px] font-medium text-ink hover:underline underline-offset-4 transition-colors">
 								{item.value}
 							</a>
 						) : (
-							<p class="mt-1.5 text-body-strong text-ink">{item.value}</p>
+							<p class="mt-1.5 text-[15px] font-medium text-ink">{item.value}</p>
 						)}
 					</div>
 				))
 			}
 		</div>
 
-		<!-- Form + Benefits -->
-		<div id="form" class="mt-section grid gap-6 lg:grid-cols-2">
-			<div class="bg-canvas p-8">
-				<h3 class="text-heading-md text-ink uppercase">Kirim Kebutuhan Anda</h3>
-				<p class="mt-2 text-body-md text-charcoal">
+		<!-- Form + CTA -->
+		<div class="mt-12 grid gap-10 lg:grid-cols-2">
+			<div>
+				<h3 class="text-heading-md text-ink">Kirim Kebutuhan Anda</h3>
+				<p class="mt-2 text-body-md text-mute leading-relaxed">
 					Isi formulir di bawah ini — tim kami akan merespons cepat via WhatsApp.
 				</p>
 
-				<form id="contact-form" data-wa={company.whatsappNumber} class="mt-6 space-y-4">
-					<div class="grid gap-4 sm:grid-cols-2">
+				<form id="contact-form" data-wa={company.whatsappNumber} class="mt-8 space-y-5">
+					<div class="grid gap-5 sm:grid-cols-2">
 						<label class="block">
-							<span class="mb-1.5 block text-caption-sm text-mute uppercase tracking-wider">Nama</span>
+							<span class="mb-2 block text-[13px] font-medium text-mute">Nama</span>
 							<input
 								type="text"
 								id="form-name"
 								required
 								placeholder="Nama Anda"
-								class="w-full border border-hairline bg-soft-cloud px-4 py-3 text-body-md text-ink placeholder:text-stone focus:border-ink focus:outline-none rounded-none"
+								class="w-full border-b border-stone-300 bg-transparent px-0 py-3 text-[15px] text-ink placeholder:text-stone-400 focus:border-ink focus:outline-none transition-colors"
 							/>
 						</label>
 						<label class="block">
-							<span class="mb-1.5 block text-caption-sm text-mute uppercase tracking-wider">Perusahaan / Instansi</span>
+							<span class="mb-2 block text-[13px] font-medium text-mute">Perusahaan / Instansi</span>
 							<input
 								type="text"
 								id="form-company"
 								placeholder="Nama perusahaan"
-								class="w-full border border-hairline bg-soft-cloud px-4 py-3 text-body-md text-ink placeholder:text-stone focus:border-ink focus:outline-none rounded-none"
+								class="w-full border-b border-stone-300 bg-transparent px-0 py-3 text-[15px] text-ink placeholder:text-stone-400 focus:border-ink focus:outline-none transition-colors"
 							/>
 						</label>
 					</div>
 					<label class="block">
-						<span class="mb-1.5 block text-caption-sm text-mute uppercase tracking-wider">No. WhatsApp</span>
+						<span class="mb-2 block text-[13px] font-medium text-mute">No. WhatsApp</span>
 						<input
 							type="tel"
 							id="form-phone"
 							required
 							placeholder="08xx-xxxx-xxxx"
-							class="w-full border border-hairline bg-soft-cloud px-4 py-3 text-body-md text-ink placeholder:text-stone focus:border-ink focus:outline-none rounded-none"
+							class="w-full border-b border-stone-300 bg-transparent px-0 py-3 text-[15px] text-ink placeholder:text-stone-400 focus:border-ink focus:outline-none transition-colors"
 						/>
 					</label>
 					<label class="block">
-						<span class="mb-1.5 block text-caption-sm text-mute uppercase tracking-wider">Kebutuhan</span>
+						<span class="mb-2 block text-[13px] font-medium text-mute">Kebutuhan</span>
 						<textarea
 							id="form-message"
 							required
 							rows="4"
 							placeholder="Contoh: butuh penawaran harga CCTV 16 titik untuk kantor..."
-							class="w-full resize-none border border-hairline bg-soft-cloud px-4 py-3 text-body-md text-ink placeholder:text-stone focus:border-ink focus:outline-none rounded-none"
+							class="w-full resize-none border-b border-stone-300 bg-transparent px-0 py-3 text-[15px] text-ink placeholder:text-stone-400 focus:border-ink focus:outline-none transition-colors"
 						></textarea>
 					</label>
 					<button
 						type="submit"
-						class="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-ink px-8 text-button-md text-canvas transition-opacity hover:opacity-80">
+						class="mt-2 inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 bg-ink text-white font-semibold text-[15px] px-8 rounded-full hover:bg-ink/90 transition-all duration-200">
 						Kirim via WhatsApp
 					</button>
-					<p class="text-center text-caption-sm text-mute">
-						Klik kirim untuk melanjutkan ke WhatsApp — data Anda hanya digunakan untuk menghubungi Anda.
+					<p class="text-[13px] text-stone-400">
+						Klik kirim untuk melanjutkan ke WhatsApp.
 					</p>
 				</form>
 			</div>
 
-			<div class="flex flex-col gap-4">
-				<div class="bg-canvas p-6">
-					<h3 class="text-body-strong text-ink uppercase">Kenapa memilih CV. Chilva Computer?</h3>
-					<ul class="mt-4 space-y-3">
-						{
-							[
-								'Penawaran harga resmi berlegalitas CV',
-								'Produk bergaransi resmi dari distributor',
-								'Respons cepat &amp; komunikasi jelas',
-								'Dukungan purna jual dan maintenance',
-							].map((item) => (
-								<li class="flex items-start gap-3">
-									<span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink text-canvas">
-										<svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor"
-											stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-											><path d="M20 6L9 17l-5-5" /></svg
-										>
-									</span>
-									<span class="text-body-md text-charcoal">{item}</span>
-								</li>
-							))
-						}
-					</ul>
+			<div class="flex flex-col justify-between">
+				<div>
+					<h3 class="text-heading-md text-ink">Siap Meningkatkan<br />Infrastruktur IT?</h3>
+					<p class="mt-4 text-body-lg text-mute leading-relaxed">
+						Konsultasikan kebutuhan Anda secara gratis bersama tim kami. Kami siap memberikan rekomendasi terbaik sesuai budget dan kebutuhan bisnis Anda.
+					</p>
 				</div>
-				<a
-					href={rfqUrl}
-					target="_blank"
-					rel="noopener"
-					class="inline-flex h-12 items-center justify-center gap-2 border border-ink bg-canvas px-8 text-button-md text-ink transition-colors hover:bg-soft-cloud">
-					Minta Penawaran Langsung (RFQ)
-				</a>
-			</div>
-		</div>
-
-		<!-- CTA -->
-		<div class="mt-section bg-canvas p-8 text-center sm:p-12">
-			<div>
-				<h3 class="text-heading-lg text-ink uppercase">
-					Siap Meningkatkan Infrastruktur IT Anda?
-				</h3>
-				<p class="mx-auto mt-3 max-w-2xl text-body-md text-charcoal">
-					Konsultasikan kebutuhan Anda secara gratis bersama tim kami. Kami siap memberikan
-					rekomendasi terbaik sesuai budget dan kebutuhan bisnis Anda.
-				</p>
-				<a
-					href={rfqUrl}
-					target="_blank"
-					rel="noopener"
-					class="mt-8 inline-flex h-12 items-center gap-2.5 rounded-full bg-ink px-8 text-button-md text-canvas transition-opacity hover:opacity-80">
-					Konsultasi Gratis
-				</a>
+				<div class="mt-10 flex flex-col sm:flex-row gap-4">
+					<a
+						href={rfqUrl}
+						target="_blank"
+						rel="noopener"
+						class="inline-flex h-12 items-center justify-center gap-2 bg-ink text-white font-semibold text-[15px] px-8 rounded-full hover:bg-ink/90 transition-all duration-200">
+						Minta Penawaran (RFQ)
+					</a>
+					<a
+						href={company.whatsappUrl}
+						target="_blank"
+						rel="noopener"
+						class="inline-flex h-12 items-center justify-center gap-2 text-ink font-semibold text-[15px] px-8 rounded-full border border-stone-200 hover:border-stone-300 transition-all duration-200">
+						Chat Langsung
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -19,7 +19,7 @@ docker ps | grep chilva-website
 
 # 4. Selesai
 echo "[4/4] Deploy selesai!"
-echo "Website berjalan di: http://localhost:5551"
+echo "Website berjalan di: http://localhost:2005"
 echo ""
 echo "=== Cloudflare Tunnel Setup ==="
 echo "Jika belum punya cloudflared:"
@@ -27,4 +27,4 @@ echo "  curl -L https://github.com/cloudflare/cloudflared/releases/latest/downlo
 echo "  chmod +x /usr/local/bin/cloudflared"
 echo ""
 echo "Jalankan tunnel:"
-echo "  cloudflared tunnel --url http://localhost:5551"
+echo "  cloudflared tunnel --url http://localhost:2005"

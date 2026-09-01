@@ -1,0 +1,76 @@
+---
+import { company } from '../data/company';
+---
+
+<section id="legalitas" class="bg-soft-cloud py-14 lg:py-20">
+	<div class="max-w-6xl mx-auto px-6 lg:px-8">
+		<!-- Header -->
+		<div class="max-w-2xl">
+			<p class="text-utility-xs uppercase tracking-[0.2em] text-mute mb-4">Legalitas Perusahaan</p>
+			<h2 class="text-heading-xl text-ink">Badan Hukum Resmi<br />dan Terpercaya</h2>
+			<p class="mt-5 text-body-lg text-mute leading-relaxed">
+				CV. Chilva Computer berbadan hukum resmi dengan akta notaris yang sah — aman diajak kerja sama untuk pengadaan barang dan jasa instansi.
+			</p>
+		</div>
+
+		<!-- Legal Data Grid -->
+		<div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+			<!-- Nama & Status Hukum -->
+			<div class="bg-white p-8 rounded-2xl border border-stone-100">
+				<div class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center mb-5">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+				</div>
+				<h3 class="text-heading-md text-ink">{company.legalName}</h3>
+				<p class="mt-1 text-[14px] text-mute">{company.legal.type}</p>
+				<div class="mt-6 pt-6 border-t border-stone-100 space-y-4">
+					<div>
+						<p class="text-[13px] font-medium text-stone-400 uppercase tracking-wider">Direktur Utama</p>
+						<p class="mt-1 text-[15px] font-semibold text-ink">{company.legal.director}</p>
+					</div>
+					<div>
+						<p class="text-[13px] font-medium text-stone-400 uppercase tracking-wider">Komisaris</p>
+						<p class="mt-1 text-[15px] font-semibold text-ink">{company.legal.commissioner}</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Akta Pendirian & Perubahan -->
+			<div class="bg-white p-8 rounded-2xl border border-stone-100">
+				<div class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center mb-5">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+				</div>
+				<h3 class="text-heading-md text-ink">Akta Notaris</h3>
+				<div class="mt-6 space-y-5">
+					<div>
+						<p class="text-[13px] font-medium text-stone-400 uppercase tracking-wider">Akta Pendirian</p>
+						<p class="mt-1 text-[14px] text-charcoal leading-relaxed">{company.legal.deedEstablishment}</p>
+					</div>
+					<div>
+						<p class="text-[13px] font-medium text-stone-400 uppercase tracking-wider">Akta Perubahan</p>
+						<p class="mt-1 text-[14px] text-charcoal leading-relaxed">{company.legal.deedAmendment}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- KBLI Categories -->
+		<div class="mt-10">
+			<h3 class="text-heading-md text-ink mb-6">Klasifikasi KBLI</h3>
+			<p class="text-body-md text-mute leading-relaxed max-w-2xl mb-8">
+				CV. Chilva Computer terdaftar resmi dengan 12 kategori KBLI yang mencakup pengadaan barang IT, instalasi, konsultasi, dan layanan keamanan.
+			</p>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+				{
+					company.kbliCategories.map((kbli) => (
+						<div class="flex items-start gap-3 p-4 rounded-xl bg-white border border-stone-100">
+							<span class="flex-shrink-0 text-[12px] font-semibold text-ink bg-stone-100 px-2 py-1 rounded-md">{kbli.code}</span>
+							<div class="min-w-0">
+								<p class="text-[14px] font-semibold text-ink leading-snug">{kbli.title}</p>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
