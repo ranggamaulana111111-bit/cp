@@ -24,7 +24,7 @@ export const company = {
 	hero: {
 		headline: ['INFRASTRUKTUR', 'JARINGAN & CCTV', 'SOLUSI IT TERPADU'],
 		subHeadline:
-			'Mitra terpercaya pengadaan hardware, instalasi CCTV, dan optimasi jaringan untuk bisnis & instansi di seluruh Indonesia.',
+			'Mitra terpercaya pengadaan hardware, instalasi CCTV, dan optimasi jaringan untuk bisnis & instansi di Serang, Banten, dan seluruh Indonesia.',
 		primaryCta: 'KONSULTASI PROJEK',
 		primaryUrl: `https://wa.me/${'6287771351338'}?text=${encodeURIComponent(
 			'Halo, saya ingin berkonsultasi mengenai proyek IT bersama CV. Chilva Computer.'
@@ -105,17 +105,17 @@ export const company = {
 		{
 			name: 'Pengadaan Hardware',
 			description:
-				'Pengadaan server, komputer, networking, dan perangkat IT lainnya dari merek terpercaya dengan jaminan garansi resmi.',
+				'Pengadaan server, komputer, networking, dan perangkat IT lainnya dari merek terpercaya dengan jaminan garansi resmi. Melayani pengadaan barang IT untuk kantor, sekolah, dan instansi di Serang dan Banten.',
 		},
 		{
 			name: 'Instalasi CCTV 24/7',
 			description:
-				'Desain, instalasi, dan perawatan sistem pengawasan CCTV dengan kualitas gambar jernih yang dipantau nonstop.',
+				'Desain, instalasi, dan perawatan sistem pengawasan CCTV dengan kualitas gambar jernih yang dipantau nonstop. Jasa pemasangan CCTV terpercaya di Kota Serang, Kabupaten Serang, dan wilayah Banten lainnya.',
 		},
 		{
 			name: 'Optimasi Jaringan Internet',
 			description:
-				'Analisis dan optimasi jaringan agar koneksi internet kantor maupun industri stabil, cepat, dan aman.',
+				'Analisis dan optimasi jaringan agar koneksi internet kantor maupun industri stabil, cepat, dan aman. Spesialis instalasi jaringan LAN, Wi-Fi, dan Fiber Optic di area Serang dan sekitarnya.',
 		},
 	],
 	stats: [
@@ -127,8 +127,8 @@ export const company = {
 	about: {
 		headline: 'MITRA IT & SECURITY TERPERCAYA',
 		paragraphs: [
-			'CV. Chilva Computer adalah perusahaan penyedia solusi teknologi informasi dan keamanan yang berbadan hukum resmi. Kami berfokus pada pengadaan perangkat keras, instalasi dan perawatan CCTV, serta optimasi jaringan untuk mendukung operasional bisnis dan instansi.',
-			'Sejak berdiri, kami telah dipercaya menangani lebih dari 150 proyek, dari pemasangan sistem pengawasan hingga pembangunan infrastruktur jaringan berskala kantor maupun industri. Setiap layanan didukung teknisi bersertifikat, produk bergaransi resmi, dan layanan purna jual yang andal.',
+			'CV. Chilva Computer adalah perusahaan penyedia solusi teknologi informasi dan keamanan yang berbadan hukum resmi di Serang, Banten. Kami berfokus pada pengadaan perangkat keras, instalasi dan perawatan CCTV, serta optimasi jaringan untuk mendukung operasional bisnis dan instansi.',
+			'Sejak berdiri di Kota Serang, kami telah dipercaya menangani lebih dari 150 proyek IT di wilayah Serang, Banten, dan sekitarnya — dari pemasangan sistem pengawasan hingga pembangunan infrastruktur jaringan berskala kantor maupun industri. Setiap layanan didukung teknisi bersertifikat, produk bergaransi resmi, dan layanan purna jual yang andal.',
 		],
 		visi: 'Menjadi penyedia solusi IT dan keamanan terdepan di Indonesia yang dikenal atas kualitas, keandalan, dan integritas dalam setiap layanan yang diberikan.',
 		misi: [
@@ -259,6 +259,6 @@ export const company = {
 	contact: {
 		headline: 'HUBUNGI KAMI',
 		subtext:
-			'Tertarik bekerja sama? Konsultasikan kebutuhan IT dan keamanan Anda — tim kami siap merespons secepatnya.',
+			'Tertarik bekerja sama? Konsultasikan kebutuhan IT dan keamanan Anda bersama CV. Chilva Computer di Serang — tim kami siap merespons secepatnya.',
 	},
 };

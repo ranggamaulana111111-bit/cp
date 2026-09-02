@@ -3,7 +3,7 @@ import '../styles/global.css';
 import { company } from '../data/company';
 
 const title = `${company.name} — ${company.tagline}`;
-const description = company.hero.subHeadline;
+const description = `${company.hero.subHeadline} CV. Chilva Computer — IT & Security Provider di Serang, Banten.`;
 const siteUrl = 'https://chilvacomputer.com';
 const canonical = siteUrl;
 ---
@@ -48,14 +48,30 @@ const canonical = siteUrl;
 				streetAddress: company.address,
 				addressLocality: 'Kota Serang',
 				addressRegion: 'Banten',
+				postalCode: '42173',
 				addressCountry: 'ID',
 			},
-			areaServed: 'Indonesia',
-			knowsAbout: ['CCTV', 'Jaringan', 'Pengadaan Hardware', 'IT Solution', 'Fiber Optic', 'Server'],
+			geo: {
+				'@type': 'GeoCoordinates',
+				latitude: '-6.1203',
+				longitude: '106.1537',
+			},
+			areaServed: [
+				{ '@type': 'City', name: 'Serang' },
+				{ '@type': 'State', name: 'Banten' },
+				{ '@type': 'Country', name: 'Indonesia' },
+			],
+			knowsAbout: ['CCTV', 'Jaringan', 'Pengadaan Hardware', 'IT Solution', 'Fiber Optic', 'Server', 'Instalasi Jaringan', 'Maintenance IT'],
 			aggregateRating: {
 				'@type': 'AggregateRating',
 				ratingValue: '4.9',
 				ratingCount: '120',
+			},
+			openingHoursSpecification: {
+				'@type': 'OpeningHoursSpecification',
+				dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+				opens: '08:00',
+				closes: '17:00',
 			},
 		})} />
 	</head>
