@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://chilvacomputer.com/sitemap.xml
