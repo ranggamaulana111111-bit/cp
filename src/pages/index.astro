@@ -7,122 +7,232 @@ import Portfolio from '../components/Portfolio.astro';
 import Legalitas from '../components/Legalitas.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Contact from '../components/Contact.astro';
+import Process from '../components/Process.astro';
+import Partners from '../components/Partners.astro';
 import { company } from '../data/company';
 ---
 
 <Layout>
-	<header class="w-full fixed top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-stone-200/60">
-		<div class="max-w-6xl mx-auto px-6 lg:px-8 h-[72px] flex items-center">
-			<a href="#" class="flex items-center gap-2.5 mr-auto">
-				<span class="text-xl font-extrabold tracking-tight text-ink">Chilva</span>
-				<span class="text-xl font-light text-stone-400">Computer</span>
+	<!-- Navigation -->
+	<header id="site-header" class="w-full fixed top-0 z-50 transition-all duration-300">
+		<div class="max-w-[1280px] mx-auto px-6 lg:px-10 h-[72px] flex items-center">
+			<a href="#" class="flex items-center gap-2 mr-auto">
+				<span class="text-lg font-extrabold tracking-tight text-ink">CHILVA</span>
+				<span class="text-lg font-light text-state">Computer</span>
 			</a>
 
 			<div class="hidden md:flex items-center gap-8">
-				<nav class="flex items-center gap-8 text-[15px] font-medium text-mute">
-					<a href="#layanan" class="hover:text-ink transition-colors duration-200">Layanan</a>
-					<a href="#tentang" class="hover:text-ink transition-colors duration-200">Tentang</a>
-					<a href="#portofolio" class="hover:text-ink transition-colors duration-200">Portofolio</a>
-					<a href="#kontak" class="hover:text-ink transition-colors duration-200">Kontak</a>
+				<nav class="flex items-center gap-7">
+					{company.navLinks.map((link) => (
+						<a href={link.href} class="nav-link text-[13px] font-medium text-mute hover:text-ink transition-colors duration-200 tracking-wide uppercase">
+							{link.label}
+						</a>
+					))}
 				</nav>
 				<a
 					href={company.hero.primaryUrl}
 					target="_blank"
 					rel="noopener"
-					class="inline-flex items-center gap-2 bg-ink text-white text-[15px] font-semibold px-6 py-2.5 rounded-full hover:bg-ink/90 transition-all duration-200">
-					Konsultasi
+					class="btn-primary text-[13px] px-5 py-2.5 rounded-md tracking-wide">
+					{company.hero.primaryCta}
 				</a>
 			</div>
 
-			<button id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" class="md:hidden flex flex-col gap-1.5 p-2 ml-auto">
-				<span id="menu-icon-open" class="block w-5 h-[1.5px] bg-ink rounded-full transition-all"></span>
-				<span class="block w-5 h-[1.5px] bg-ink rounded-full transition-all"></span>
-				<span id="menu-icon-close" class="hidden block w-5 h-[1.5px] bg-ink rounded-full rotate-45 translate-y-[4.5px] transition-all"></span>
+			<button id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" class="md:hidden flex flex-col gap-[5px] p-2 ml-auto">
+				<span id="menu-bar-1" class="block w-5 h-[1.5px] bg-ink rounded-full transition-all duration-300 origin-center"></span>
+				<span id="menu-bar-2" class="block w-5 h-[1.5px] bg-ink rounded-full transition-all duration-300"></span>
+				<span id="menu-bar-3" class="block w-5 h-[1.5px] bg-ink rounded-full transition-all duration-300 origin-center"></span>
 			</button>
 		</div>
 
-		<div id="mobile-menu" class="hidden md:hidden border-t border-stone-200/60 bg-white/95 backdrop-blur-xl">
-			<div class="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-4">
-				<a href="#layanan" class="text-[15px] font-medium text-mute hover:text-ink transition-colors">Layanan</a>
-				<a href="#tentang" class="text-[15px] font-medium text-mute hover:text-ink transition-colors">Tentang</a>
-				<a href="#portofolio" class="text-[15px] font-medium text-mute hover:text-ink transition-colors">Portofolio</a>
-				<a href="#kontak" class="text-[15px] font-medium text-mute hover:text-ink transition-colors">Kontak</a>
-				<a href={company.hero.primaryUrl} target="_blank" rel="noopener" class="mt-2 inline-flex items-center justify-center bg-ink text-white text-[15px] font-semibold px-6 py-3 rounded-full hover:bg-ink/90 transition-all">Konsultasi</a>
+		<!-- Mobile Menu -->
+		<div id="mobile-menu" class="hidden md:hidden bg-canvas/98 backdrop-blur-xl border-t border-border-soft">
+			<div class="max-w-[1280px] mx-auto px-6 py-8 flex flex-col gap-1">
+				{company.navLinks.map((link) => (
+					<a href={link.href} class="text-[15px] font-medium text-mute hover:text-ink py-3 border-b border-border-soft transition-colors">
+						{link.label}
+					</a>
+				))}
+				<a
+					href={company.hero.primaryUrl}
+					target="_blank"
+					rel="noopener"
+					class="mt-6 btn-primary text-center text-[15px] px-6 py-3.5 rounded-md">
+					{company.hero.primaryCta}
+				</a>
 			</div>
 		</div>
 	</header>
 
 	<main>
 		<!-- Hero -->
-		<section class="w-full pt-[120px] pb-14 lg:pt-[130px] lg:pb-20">
-			<div class="max-w-6xl mx-auto px-6 lg:px-8">
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-					<!-- Left: Text -->
-					<div>
-						<h1 class="text-[clamp(2.5rem,5vw,4rem)] font-extrabold text-ink leading-[1.08] tracking-[-0.025em]">
-							Mitra Terpercaya Pengadaan Hardware, CCTV & Jaringan
+		<section class="hero-section relative w-full pt-[96px] pb-12 lg:pt-[150px] lg:pb-24 bg-canvas overflow-hidden">
+			<!-- Animated aurora mesh background -->
+			<div class="hero-mesh -z-10" aria-hidden="true"></div>
+			<!-- Moving grid lines -->
+			<div class="hero-grid -z-10" aria-hidden="true"></div>
+
+			<!-- Blurred drifting hardware chips -->
+			<div class="hero-hardware -z-10" aria-hidden="true" style="z-index:5">
+				<svg class="hero-chip hero-chip-1" viewBox="0 0 100 100" fill="none">
+					<rect x="12" y="12" width="76" height="76" rx="8" stroke="#40C4D0" stroke-opacity="0.8" stroke-width="3"/>
+					<rect x="24" y="24" width="52" height="52" rx="4" stroke="#B87981" stroke-opacity="0.7" stroke-width="2"/>
+					<circle cx="50" cy="50" r="12" stroke="#CEAB8F" stroke-opacity="0.8" stroke-width="2.5"/>
+					<g stroke="#40C4D0" stroke-opacity="0.8" stroke-width="2.5">
+						<line x1="50" y1="0" x2="50" y2="12"/><line x1="50" y1="88" x2="50" y2="100"/>
+						<line x1="0" y1="50" x2="12" y2="50"/><line x1="88" y1="50" x2="100" y2="50"/>
+						<line x1="0" y1="26" x2="12" y2="26"/><line x1="88" y1="26" x2="100" y2="26"/>
+						<line x1="0" y1="74" x2="12" y2="74"/><line x1="88" y1="74" x2="100" y2="74"/>
+					</g>
+				</svg>
+				<svg class="hero-chip hero-chip-2" viewBox="0 0 100 100" fill="none">
+					<rect x="16" y="16" width="68" height="68" rx="6" stroke="#CEAB8F" stroke-opacity="0.75" stroke-width="3"/>
+					<circle cx="50" cy="50" r="18" stroke="#40C4D0" stroke-opacity="0.7" stroke-width="2"/>
+					<g stroke="#B87981" stroke-opacity="0.7" stroke-width="2.5">
+						<line x1="50" y1="0" x2="50" y2="16"/><line x1="50" y1="84" x2="50" y2="100"/>
+						<line x1="0" y1="50" x2="16" y2="50"/><line x1="84" y1="50" x2="100" y2="50"/>
+					</g>
+				</svg>
+				<svg class="hero-chip hero-chip-3" viewBox="0 0 100 120" fill="none">
+					<rect x="20" y="10" width="60" height="60" rx="6" stroke="#40C4D0" stroke-opacity="0.7" stroke-width="3"/>
+					<g stroke="#CEAB8F" stroke-opacity="0.7" stroke-width="2.5">
+						<line x1="34" y1="70" x2="34" y2="86"/><line x1="50" y1="70" x2="50" y2="86"/><line x1="66" y1="70" x2="66" y2="86"/>
+					</g>
+					<g stroke="#B87981" stroke-opacity="0.7" stroke-width="2.5">
+						<line x1="34" y1="10" x2="34" y2="10"/><line x1="50" y1="10" x2="50" y2="10"/><line x1="66" y1="10" x2="66" y2="10"/>
+					</g>
+					<path d="M0 95 H30 l6 -8 h28 l6 8 H100" stroke="#40C4D0" stroke-opacity="0.6" stroke-width="2"/>
+				</svg>
+				<svg class="hero-chip hero-chip-4" viewBox="0 0 100 100" fill="none">
+					<rect x="18" y="18" width="64" height="64" rx="5" stroke="#B87981" stroke-opacity="0.75" stroke-width="3"/>
+					<circle cx="50" cy="50" r="9" stroke="#40C4D0" stroke-opacity="0.8" stroke-width="2.5"/>
+					<circle cx="50" cy="50" r="21" stroke="#40C4D0" stroke-opacity="0.25" stroke-width="1.5"/>
+					<g stroke="#CEAB8F" stroke-opacity="0.7" stroke-width="2.5">
+						<line x1="50" y1="0" x2="50" y2="18"/><line x1="50" y1="82" x2="50" y2="100"/>
+						<line x1="0" y1="50" x2="18" y2="50"/><line x1="82" y1="50" x2="100" y2="50"/>
+					</g>
+				</svg>
+				<svg class="hero-chip hero-chip-5" viewBox="0 0 120 80" fill="none">
+					<rect x="20" y="14" width="80" height="52" rx="4" stroke="#40C4D0" stroke-opacity="0.8" stroke-width="3"/>
+					<rect x="34" y="28" width="52" height="24" rx="2" stroke="#B87981" stroke-opacity="0.6" stroke-width="2"/>
+					<g stroke="#CEAB8F" stroke-opacity="0.7" stroke-width="2.5">
+						<line x1="10" y1="14" x2="10" y2="0"/><line x1="30" y1="14" x2="30" y2="0"/>
+						<line x1="90" y1="14" x2="90" y2="0"/><line x1="110" y1="14" x2="110" y2="0"/>
+						<line x1="10" y1="66" x2="10" y2="80"/><line x1="30" y1="66" x2="30" y2="80"/>
+						<line x1="90" y1="66" x2="90" y2="80"/><line x1="110" y1="66" x2="110" y2="80"/>
+					</g>
+				</svg>
+			</div>
+
+			<!-- Precision circuit traces with flowing data dots -->
+			<svg class="hero-circuit -z-10" aria-hidden="true" preserveAspectRatio="none" style="z-index:5">
+				<path class="circuit-path" d="M60 760 V680 H240 V600 H360" />
+				<circle class="circuit-dot" cx="60" cy="760"><animateMotion dur="5s" repeatCount="indefinite" path="M60 760 V680 H240 V600 H360" /></circle>
+				<path class="circuit-path" d="M700 780 V700 H860 V620 H1000" />
+				<circle class="circuit-dot" cx="700" cy="780"><animateMotion dur="6s" repeatCount="indefinite" path="M700 780 V700 H860 V620 H1000" /></circle>
+			</svg>
+
+			<!-- Living background blobs (behind content) -->
+			<div class="hero-bg-orb hero-bg-orb-1 absolute -top-24 -left-24 w-[300px] h-[300px] lg:w-[420px] lg:h-[420px] rounded-full bg-teal/25 blur-3xl -z-10"></div>
+			<div class="hero-bg-orb hero-bg-orb-2 absolute top-1/3 -right-32 w-[300px] h-[300px] lg:w-[460px] lg:h-[460px] rounded-full bg-rose/15 blur-3xl -z-10"></div>
+			<div class="hero-bg-orb hero-bg-orb-3 absolute bottom-0 left-1/3 w-[260px] h-[260px] lg:w-[380px] lg:h-[380px] rounded-full bg-sand/20 blur-3xl -z-10"></div>
+
+			<!-- Floating particles -->
+			<div class="hero-particles -z-10" aria-hidden="true">
+				{Array.from({ length: 16 }).map((_, i) => (
+					<span
+						class="hero-particle"
+						style={`left:${(i * 6.4) % 100}%;top:${(i * 13 + 7) % 100}%;animation-delay:${(i % 6) * 0.9}s;width:${6 + (i % 4) * 3}px;height:${6 + (i % 4) * 3}px;`}
+					></span>
+				))}
+			</div>
+
+			<div class="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-10">
+				<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-start">
+					<div class="lg:col-span-7 relative">
+						<div class="hero-title-glow -z-10" aria-hidden="true"></div>
+						<div class="hero-title-shine -z-10" aria-hidden="true"></div>
+						<h1 class="text-display text-ink whitespace-pre-line [overflow-wrap:break-word]">
+							{company.hero.headline.split('\n').map((line, li) => (
+								<span class="block">
+									{line.split(' ').map((word, wi) => (
+										<span
+											class="hero-word"
+											style={`animation-delay:${0.08 + li * 0.12 + wi * 0.07}s`}
+										>{word}{'\u00A0'}</span>
+									))}
+								</span>
+							))}
 						</h1>
-						<p class="mt-7 text-body-lg text-mute leading-relaxed">
-							Solusi terpadu pengadaan barang IT, instalasi CCTV, dan optimasi jaringan — mulai dari konsultasi, pemasangan, hingga perawatan berkala untuk bisnis dan instansi Anda.
+						<p class="mt-6 text-body-md text-mute leading-relaxed max-w-xl [animation-delay:0.25s] animate-hero-up">
+							{company.hero.subHeadline}
 						</p>
-						<div class="mt-10 flex flex-col sm:flex-row items-start gap-4">
+						<div class="mt-10 flex flex-col sm:flex-row items-start gap-4 [animation-delay:0.4s] animate-hero-up">
 							<a
 								href={company.hero.primaryUrl}
 								target="_blank"
 								rel="noopener"
-								class="inline-flex items-center justify-center gap-2 bg-ink text-white font-semibold text-[15px] px-8 py-3.5 rounded-full hover:bg-ink/90 transition-all duration-200">
-								Konsultasi Gratis
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+								class="btn-primary text-[15px] px-8 py-3.5 rounded-md inline-flex items-center gap-2">
+								{company.hero.primaryCta}
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
 							</a>
 							<a
-								href="#layanan"
-								class="inline-flex items-center justify-center gap-2 text-mute font-semibold text-[15px] px-8 py-3.5 rounded-full border border-stone-200 hover:border-stone-300 hover:text-ink transition-all duration-200">
-								Lihat Layanan
+								href={company.hero.secondaryUrl}
+								class="text-[15px] font-semibold text-mute hover:text-ink px-8 py-3.5 rounded-md border border-border hover:border-state transition-all duration-200 inline-flex items-center gap-2">
+								{company.hero.secondaryCta}
 							</a>
 						</div>
 					</div>
+					<div class="lg:col-span-5">
+						<div class="hero-card animate-hero-up lg:aspect-[4/5] min-h-[280px] bg-stone-warm/40 rounded-lg overflow-hidden relative flex flex-col p-5 sm:p-8">
+							<!-- Animated background gradient -->
+							<div class="hero-card-bg" aria-hidden="true"></div>
+							<!-- Animated gradient ring -->
+							<div class="hero-ring"></div>
+							<!-- Animated scan line at top -->
+							<div class="hero-scanline absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-transparent via-teal to-transparent"></div>
 
-					<!-- Right: Company Documentation Visual -->
-					<div class="hidden lg:block lg:mt-0">
-						<div>
-							<!-- Main card -->
-							<div class="bg-white rounded-3xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-stone-100">
-								<div class="flex items-center gap-3 mb-6">
-									<div class="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white text-[13px] font-bold">CV</div>
-									<div>
-										<p class="text-[15px] font-semibold text-ink">CV. Chilva Computer</p>
-										<p class="text-[13px] text-stone-400">IT & Security Provider</p>
-									</div>
+							<!-- Accent top-right -->
+							<div class="flex items-center justify-between mb-5 lg:mb-7">
+								<span class="inline-flex items-center gap-2 text-meta text-teal tracking-[0.15em]">
+									<span class="w-2 h-2 rounded-full bg-teal animate-pulse"></span>
+									CHILVA / CV
+								</span>
+								<span class="w-10 h-[2px] bg-teal/60 rounded-full float-dot"></span>
+							</div>
+
+							<!-- BASED IN - now higher up -->
+							<div class="mb-5 lg:mb-6 p-3.5 lg:p-4 bg-white/60 rounded-lg border border-border-soft">
+								<div class="text-meta text-state mb-1.5">BERBASIS DI</div>
+								<div class="flex items-center gap-2">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-teal shrink-0 float-dot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+									<span class="text-[14px] lg:text-[15px] font-semibold text-ink">Serang, Banten — Indonesia</span>
 								</div>
+							</div>
 
-								<div class="space-y-4">
-									<div class="flex items-center gap-3 p-3 rounded-xl bg-stone-50">
-										<div class="w-8 h-8 rounded-lg bg-stone-200/60 flex items-center justify-center">
-											<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+							<div class="flex-1">
+								<div class="text-meta text-mute mb-3 lg:mb-4">KAMI MELAYANI</div>
+								<div class="space-y-2 lg:space-y-2.5">
+									{['Enterprise', 'Pemerintah', 'Pendidikan', 'Industri'].map((item, i) => (
+										<div
+											style={`animation-delay:${0.5 + i * 0.12}s`}
+											class:list={[
+											'hero-card-item flex items-center gap-3 py-2 lg:py-2.5 px-3.5 lg:px-4 rounded-md transition-all duration-200',
+											i === 0 && 'bg-teal/10',
+											i === 1 && 'bg-rose/10',
+											i === 2 && 'bg-sand/15',
+											i === 3 && 'bg-stone-warm/70',
+										]}>
+											<span class:list={[
+												'w-1.5 h-1.5 rounded-full shrink-0',
+												i === 0 && 'bg-teal',
+												i === 1 && 'bg-rose',
+												i === 2 && 'bg-sand',
+												i === 3 && 'bg-state',
+											]}></span>
+											<span class="text-[14px] lg:text-[15px] font-semibold text-ink">{item}</span>
 										</div>
-										<div>
-											<p class="text-[13px] font-semibold text-ink">Pengadaan Hardware</p>
-											<p class="text-[12px] text-stone-400">Server, Workstation, Networking</p>
-										</div>
-									</div>
-									<div class="flex items-center gap-3 p-3 rounded-xl bg-stone-50">
-										<div class="w-8 h-8 rounded-lg bg-stone-200/60 flex items-center justify-center">
-											<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-										</div>
-										<div>
-											<p class="text-[13px] font-semibold text-ink">Instalasi CCTV 24/7</p>
-											<p class="text-[12px] text-stone-400">IP Camera, NVR, Monitoring</p>
-										</div>
-									</div>
-									<div class="flex items-center gap-3 p-3 rounded-xl bg-stone-50">
-										<div class="w-8 h-8 rounded-lg bg-stone-200/60 flex items-center justify-center">
-											<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-										</div>
-										<div>
-											<p class="text-[13px] font-semibold text-ink">Optimasi Jaringan</p>
-											<p class="text-[12px] text-stone-400">LAN, Wi-Fi, Fiber Optic</p>
-										</div>
-									</div>
+									))}
 								</div>
 							</div>
 						</div>
@@ -132,114 +242,115 @@ import { company } from '../data/company';
 		</section>
 
 		<!-- Stats -->
-		<section class="border-y border-stone-200/60 bg-white">
-			<div class="max-w-6xl mx-auto px-6 lg:px-8 py-12 lg:py-14 grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
-				{
-					company.stats.map((stat) => (
-						<div class="text-center">
-							<span class="block text-display text-ink">{stat.value}</span>
-							<span class="mt-2 block text-utility-xs uppercase tracking-[0.15em] text-mute">{stat.label}</span>
+		<section class="border-y border-border bg-white">
+			<div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+				<div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border-soft">
+					{company.stats.map((stat, i) => (
+						<div class:list={[
+							'stat-item py-8 lg:py-10 text-center lg:text-left px-6',
+							i === 0 && 'pl-0',
+							i === 3 && 'pr-0 border-r-0',
+						]}>
+							<span
+								class:list={[
+									'js-counter block text-display-sm tabular-nums',
+									i === 0 && 'text-teal',
+									i === 1 && 'text-ink',
+									i === 2 && 'text-ink',
+									i === 3 && 'text-rose',
+								]}
+								data-target={stat.value}>{stat.value}</span>
+							<span class="mt-1.5 block text-meta text-state uppercase">{stat.label}</span>
 						</div>
-					))
-				}
+					))}
+				</div>
 			</div>
 		</section>
 
 		<Services />
+		<Portfolio />
 		<About />
 		<WhyUs />
-		<Portfolio />
+		<Process />
+		<Partners />
 		<Legalitas />
 		<Testimonials />
 		<Contact />
-
-		<!-- CTA Band -->
-		<section class="py-12 bg-slate-100/70 text-center">
-			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-				<h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">
-				Siap Meningkatkan Infrastruktur IT Anda?
-			</h2>
-			<p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-8">
-				Siap bantu dari konsultasi hingga pemasangan — tanpa biaya, tanpa komitmen. Melayani seluruh wilayah Serang, Banten, dan sekitarnya.
-				</p>
-				<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-					<a
-						href={company.whatsappUrl}
-						target="_blank"
-						rel="noopener"
-						class="bg-gray-900 hover:bg-black text-white font-bold px-8 py-3.5 rounded-full transition-all shadow-md text-sm">
-						Chat Langsung
-					</a>
-					<a
-						href="#kontak"
-						class="border border-gray-300 hover:bg-white text-gray-800 font-semibold px-8 py-3.5 rounded-full transition-all text-sm">
-						Hubungi Kami
-					</a>
-				</div>
-			</div>
-		</section>
 	</main>
 
-	<!-- Footer -->
-	<footer class="bg-canvas border-t border-stone-200/60">
-		<div class="max-w-6xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
-			<div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8">
+		<!-- Footer -->
+	<footer class="bg-near-black text-white">
+		<div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-14 lg:py-16">
+			<div class="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-8">
 				<!-- Brand -->
-				<div class="md:col-span-5">
-					<div class="flex items-center gap-2.5">
-						<span class="text-xl font-extrabold tracking-tight text-ink">Chilva</span>
-						<span class="text-xl font-light text-stone-400">Computer</span>
+				<div class="md:col-span-4">
+					<div class="flex items-center gap-2">
+						<span class="text-lg font-extrabold tracking-tight text-white">CHILVA</span>
+						<span class="text-lg font-light text-white/40">Computer</span>
 					</div>
-					<p class="mt-4 text-body-md text-mute leading-relaxed max-w-sm">
+					<p class="mt-4 text-[14px] text-white/50 leading-relaxed max-w-xs">
 						{company.address}
 					</p>
 					<div class="mt-6 flex items-center gap-4">
-						<a href={`mailto:${company.email}`} class="text-sm text-mute hover:text-ink transition-colors" aria-label="Email">
+						<a href={`mailto:${company.email}`} class="text-white/40 hover:text-teal transition-colors" aria-label="Email">
 							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
 						</a>
-						<a href={company.whatsappUrl} target="_blank" rel="noopener" class="text-sm text-mute hover:text-ink transition-colors" aria-label="WhatsApp">
+						<a href={company.whatsappUrl} target="_blank" rel="noopener" class="text-white/40 hover:text-teal transition-colors" aria-label="WhatsApp">
 							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
 						</a>
-						<a href={company.mapUrl} target="_blank" rel="noopener" class="text-sm text-mute hover:text-ink transition-colors" aria-label="Lokasi">
+						<a href={company.mapUrl} target="_blank" rel="noopener" class="text-white/40 hover:text-teal transition-colors" aria-label="Lokasi">
 							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
 						</a>
 					</div>
 				</div>
 
-				<!-- Links -->
-				<div class="md:col-span-3">
-					<h3 class="text-[13px] font-semibold uppercase tracking-[0.15em] text-ink mb-5">Navigasi</h3>
-					<ul class="space-y-3 text-[15px]">
-						<li><a href="#layanan" class="text-mute hover:text-ink transition-colors">Layanan</a></li>
-						<li><a href="#tentang" class="text-mute hover:text-ink transition-colors">Tentang Kami</a></li>
-						<li><a href="#portofolio" class="text-mute hover:text-ink transition-colors">Portofolio</a></li>
-						<li><a href="#kontak" class="text-mute hover:text-ink transition-colors">Kontak</a></li>
+				<!-- Services -->
+				<div class="md:col-span-2">
+					<h3 class="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/40 mb-5">Layanan</h3>
+					<ul class="space-y-3 text-[14px]">
+						{company.services.map((s) => (
+							<li><a href="#layanan" class="text-white/60 hover:text-white transition-colors">{s.name}</a></li>
+						))}
 					</ul>
 				</div>
 
-				<!-- Services -->
+				<!-- Company -->
 				<div class="md:col-span-2">
-					<h3 class="text-[13px] font-semibold uppercase tracking-[0.15em] text-ink mb-5">Layanan</h3>
-					<ul class="space-y-3 text-[15px]">
-						<li><a href="#layanan" class="text-mute hover:text-ink transition-colors">Jaringan & FTTH</a></li>
-						<li><a href="#layanan" class="text-mute hover:text-ink transition-colors">CCTV Enterprise</a></li>
-						<li><a href="#layanan" class="text-mute hover:text-ink transition-colors">Server & Data Center</a></li>
+					<h3 class="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/40 mb-5">Perusahaan</h3>
+					<ul class="space-y-3 text-[14px]">
+						<li><a href="#tentang" class="text-white/60 hover:text-white transition-colors">Tentang</a></li>
+						<li><a href="#portofolio" class="text-white/60 hover:text-white transition-colors">Proyek</a></li>
+						<li><a href="#legalitas" class="text-white/60 hover:text-white transition-colors">Legalitas</a></li>
+						<li><a href="#kontak" class="text-white/60 hover:text-white transition-colors">Kontak</a></li>
 					</ul>
 				</div>
 
 				<!-- Contact -->
 				<div class="md:col-span-2">
-					<h3 class="text-[13px] font-semibold uppercase tracking-[0.15em] text-ink mb-5">Kontak</h3>
-					<ul class="space-y-3 text-[15px] text-mute">
+					<h3 class="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/40 mb-5">Kontak</h3>
+					<ul class="space-y-3 text-[14px] text-white/60">
 						<li>{company.phoneDisplay}</li>
-						<li class="break-all"><a href={`mailto:${company.email}`} class="hover:text-ink transition-colors">{company.email}</a></li>
-						<li>{company.hours}</li>
+						<li class="break-all"><a href={`mailto:${company.email}`} class="hover:text-white transition-colors">{company.email}</a></li>
+						<li class="text-[13px] text-white/40">{company.hours}</li>
 					</ul>
+				</div>
+
+				<!-- CTA -->
+				<div class="md:col-span-2">
+					<h3 class="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/40 mb-5">Mulai</h3>
+					<a
+						href={company.hero.primaryUrl}
+						target="_blank"
+						rel="noopener"
+						class="inline-flex items-center gap-2 text-[14px] font-semibold text-teal hover:text-teal/80 transition-colors">
+						Mulai Konsultasi
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+					</a>
 				</div>
 			</div>
 
 			<!-- Bottom -->
-			<div class="mt-10 pt-6 border-t border-stone-200/60 flex flex-col sm:flex-row items-center justify-between text-[13px] text-stone-400">
+			<div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[12px] text-white/30">
 				<p>&copy; 2026 CV Chilva Computer. All rights reserved.</p>
 				<p class="mt-2 sm:mt-0">{company.legal.domicile}</p>
 			</div>
@@ -250,25 +361,46 @@ import { company } from '../data/company';
 	<button
 		id="back-to-top"
 		type="button"
-		aria-label="Kembali ke atas"
-		class="fixed right-5 bottom-5 z-50 hidden h-11 w-11 items-center justify-center rounded-full bg-white border border-stone-200 text-ink shadow-sm transition-all duration-200 hover:shadow-md">
-		<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"
+		aria-label="Back to top"
+		class="fixed right-5 bottom-5 z-50 hidden h-11 w-11 items-center justify-center rounded-md bg-ink text-white border border-white/10 transition-all duration-200 hover:bg-near-black">
+		<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
 			stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
 			><path d="M12 19V5" /><path d="m5 12 7-7 7 7" /></svg
 		>
 	</button>
 
 	<script>
+		// Header scroll behavior
+		const header = document.getElementById('site-header');
+		function syncHeader() {
+			if (window.scrollY > 20) {
+				header.classList.add('bg-canvas/95', 'backdrop-blur-xl', 'border-b', 'border-border-soft');
+			} else {
+				header.classList.remove('bg-canvas/95', 'backdrop-blur-xl', 'border-b', 'border-border-soft');
+			}
+		}
+		window.addEventListener('scroll', syncHeader, { passive: true });
+		syncHeader();
+
+		// Mobile menu
 		const toggle = document.getElementById('menu-toggle');
 		const menu = document.getElementById('mobile-menu');
-		const openIcon = document.getElementById('menu-icon-open');
-		const closeIcon = document.getElementById('menu-icon-close');
+		const bar1 = document.getElementById('menu-bar-1');
+		const bar2 = document.getElementById('menu-bar-2');
+		const bar3 = document.getElementById('menu-bar-3');
 
 		function setMenu(open) {
 			menu.classList.toggle('hidden', !open);
-			openIcon.classList.toggle('hidden', open);
-			closeIcon.classList.toggle('hidden', !open);
 			toggle.setAttribute('aria-expanded', String(open));
+			if (open) {
+				bar1.classList.add('rotate-45', 'translate-y-[6.5px]');
+				bar2.classList.add('opacity-0');
+				bar3.classList.add('-rotate-45', '-translate-y-[6.5px]');
+			} else {
+				bar1.classList.remove('rotate-45', 'translate-y-[6.5px]');
+				bar2.classList.remove('opacity-0');
+				bar3.classList.remove('-rotate-45', '-translate-y-[6.5px]');
+			}
 		}
 
 		toggle.addEventListener('click', () => {
@@ -279,13 +411,12 @@ import { company } from '../data/company';
 			link.addEventListener('click', () => setMenu(false));
 		});
 
-		const sections = ['beranda', 'layanan', 'tentang', 'portofolio', 'kontak']
+		// Active section tracking
+		const sectionIds = ['beranda', 'layanan', 'tentang', 'portofolio', 'kontak'];
+		const sections = sectionIds
 			.map((id) => document.getElementById(id))
 			.filter(Boolean);
-		const navAnchors = [
-			...document.querySelectorAll('header nav a'),
-			...document.querySelectorAll('#mobile-menu a'),
-		];
+		const navLinks = document.querySelectorAll('.nav-link');
 
 		function syncActiveSection() {
 			const pos = window.scrollY + 100;
@@ -293,14 +424,15 @@ import { company } from '../data/company';
 			for (const section of sections) {
 				if (section.offsetTop <= pos) current = section.id;
 			}
-			navAnchors.forEach((anchor) => {
-				const href = anchor.getAttribute('href');
+			navLinks.forEach((link) => {
+				const href = link.getAttribute('href');
 				const active = href === `#${current}`;
-				anchor.classList.toggle('text-ink', active);
-				anchor.classList.toggle('text-mute', !active);
+				link.classList.toggle('text-ink', active);
+				link.classList.toggle('text-mute', !active);
 			});
 		}
 
+		// Back to top
 		const backToTop = document.getElementById('back-to-top');
 		function syncBackToTop() {
 			backToTop.classList.toggle('hidden', window.scrollY < 600);
@@ -309,13 +441,14 @@ import { company } from '../data/company';
 		window.addEventListener('scroll', () => {
 			syncActiveSection();
 			syncBackToTop();
-		});
+		}, { passive: true });
 		syncActiveSection();
 		syncBackToTop();
 
 		backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-		const revealEls = document.querySelectorAll('.js-reveal');
+		// Reveal animations
+		const revealEls = document.querySelectorAll('.js-reveal, .js-reveal-left, .js-reveal-right');
 		if ('IntersectionObserver' in window) {
 			const observer = new IntersectionObserver(
 				(entries) => {
@@ -325,12 +458,12 @@ import { company } from '../data/company';
 							el.classList.add('is-visible');
 							observer.unobserve(el);
 							const settle = () => {
-								el.classList.remove('js-reveal');
+								el.classList.remove('js-reveal', 'js-reveal-left', 'js-reveal-right');
 								el.style.transitionDelay = '';
 							};
 							el.addEventListener('transitionend', settle, { once: true });
 							setTimeout(() => {
-								if (el.classList.contains('js-reveal')) settle();
+								if (el.classList.contains('js-reveal') || el.classList.contains('js-reveal-left') || el.classList.contains('js-reveal-right')) settle();
 							}, 1500);
 						}
 					}
@@ -339,12 +472,67 @@ import { company } from '../data/company';
 			);
 			let revealIndex = 0;
 			revealEls.forEach((el) => {
-				el.style.transitionDelay = `${(revealIndex % 6) * 80}ms`;
+				el.style.transitionDelay = `${(revealIndex % 4) * 100}ms`;
 				revealIndex += 1;
 				observer.observe(el);
 			});
 		} else {
-			revealEls.forEach((el) => el.classList.remove('js-reveal'));
+			revealEls.forEach((el) => {
+				el.classList.remove('js-reveal', 'js-reveal-left', 'js-reveal-right');
+			});
+		}
+
+		// Number counter for stats
+		const counters = document.querySelectorAll('.js-counter');
+		if ('IntersectionObserver' in window && counters.length) {
+			const counterObserver = new IntersectionObserver(
+				(entries) => {
+					for (const entry of entries) {
+						if (entry.isIntersecting) {
+							const el = entry.target;
+							const raw = el.dataset.target || '';
+							const num = parseInt(raw.replace(/[^0-9.]/g, ''), 10);
+							const suffix = raw.replace(/[0-9.]/g, '');
+							const hasDecimal = raw.includes('.');
+							if (!num || hasDecimal) {
+								el.textContent = raw;
+								counterObserver.unobserve(el);
+								continue;
+							}
+							const duration = 1400;
+							const start = performance.now();
+							const tick = (now) => {
+								const p = Math.min((now - start) / duration, 1);
+								const eased = 1 - Math.pow(1 - p, 3);
+								el.textContent = Math.round(num * eased) + suffix;
+								if (p < 1) requestAnimationFrame(tick);
+								else counterObserver.unobserve(el);
+							};
+							requestAnimationFrame(tick);
+							counterObserver.unobserve(el);
+						}
+					}
+				},
+				{ threshold: 0.5 }
+			);
+			counters.forEach((c) => counterObserver.observe(c));
+		}
+
+		// Accent line under section headings
+		const accentLines = document.querySelectorAll('.js-accent-line');
+		if ('IntersectionObserver' in window && accentLines.length) {
+			const accentObserver = new IntersectionObserver(
+				(entries) => {
+					for (const entry of entries) {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('is-visible');
+							accentObserver.unobserve(entry.target);
+						}
+					}
+				},
+				{ threshold: 0.6 }
+			);
+			accentLines.forEach((el) => accentObserver.observe(el));
 		}
 	</script>
 </Layout>

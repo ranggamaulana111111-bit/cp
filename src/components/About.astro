@@ -2,68 +2,70 @@
 import { company } from '../data/company';
 ---
 
-<section id="tentang" class="bg-canvas py-14 lg:py-20 border-t border-stone-200/60">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<!-- Header -->
-		<div class="max-w-2xl">
-			<p class="text-utility-xs uppercase tracking-[0.2em] text-mute mb-4">Tentang Kami</p>
-			<h2 class="text-heading-xl text-ink">{company.about.headline}</h2>
-		</div>
+<section id="tentang" class="bg-canvas py-16 lg:py-24">
+	<div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+			<!-- Left column -->
+			<div class="lg:col-span-5">
+				<p class="text-meta text-teal mb-4">TENTANG</p>
+				<h2 class="text-display-sm text-ink whitespace-pre-line">{company.about.headline}</h2>
 
-		<!-- Deskripsi Perusahaan -->
-		<div class="mt-8">
-			<div class="max-w-3xl space-y-5">
-				{company.about.paragraphs.map((p) => (
-					<p class="text-body-lg text-mute leading-relaxed">{p}</p>
-				))}
-			</div>
-		</div>
-
-		<!-- Visi & Misi -->
-		<div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
-			<div class="bg-stone-50 rounded-2xl p-8 border border-stone-100">
-				<h3 class="text-heading-md text-ink mb-4">Visi</h3>
-				<p class="text-body-lg text-charcoal leading-relaxed italic">"{company.about.visi}"</p>
-			</div>
-			<div>
-				<h3 class="text-heading-md text-ink mb-6">Misi</h3>
-				<ol class="space-y-4">
-					{company.about.misi.map((item, i) => (
-						<li class="flex items-start gap-3">
-							<span class="flex-shrink-0 w-6 h-6 rounded-full bg-stone-100 flex items-center justify-center text-[12px] font-semibold text-ink">{i + 1}</span>
-							<span class="text-body-md text-charcoal leading-relaxed">{item}</span>
-						</li>
+				<div class="mt-8">
+					{company.about.paragraphs.map((p) => (
+						<p class="text-body-lg text-mute leading-relaxed mb-4">{p}</p>
 					))}
-				</ol>
-			</div>
-		</div>
+				</div>
 
-		<!-- Core Values -->
-		<div class="mt-14">
-			<h3 class="text-heading-md text-ink mb-8">Nilai-Nilai Kami</h3>
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-				{
-					company.about.values.map((val) => (
-						<div class="p-6 rounded-2xl bg-stone-50 border border-stone-100">
-							<div class="w-10 h-10 rounded-xl bg-ink/5 flex items-center justify-center mb-4">
-								{val.icon === 'briefcase' && (
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-								)}
-								{val.icon === 'shield' && (
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-								)}
-								{val.icon === 'wrench' && (
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-								)}
-								{val.icon === 'lightbulb' && (
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
-								)}
+				<!-- Values -->
+				<div class="mt-10">
+					<h3 class="text-[13px] font-semibold uppercase tracking-[0.12em] text-ink mb-5">Nilai Inti</h3>
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+						{company.about.values.map((val) => (
+							<div class="py-4 border-b border-border-soft">
+								<h4 class="text-[15px] font-semibold text-ink">{val.title}</h4>
+								<p class="mt-1 text-[13px] text-mute leading-relaxed">{val.desc}</p>
 							</div>
-							<h4 class="text-[15px] font-semibold text-ink">{val.title}</h4>
-							<p class="mt-2 text-[14px] text-mute leading-relaxed">{val.desc}</p>
-						</div>
-					))
-				}
+						))}
+					</div>
+				</div>
+			</div>
+
+			<!-- Right column -->
+			<div class="lg:col-span-7">
+				<!-- Vision -->
+				<div class="bg-stone-warm/30 rounded-lg p-8 lg:p-10">
+					<h3 class="text-[13px] font-semibold uppercase tracking-[0.12em] text-state mb-4">Visi</h3>
+					<p class="text-[18px] font-medium text-ink leading-relaxed italic">"{company.about.visi}"</p>
+				</div>
+
+				<!-- Mission -->
+				<div class="mt-8">
+					<h3 class="text-[13px] font-semibold uppercase tracking-[0.12em] text-ink mb-5">Misi</h3>
+					<div class="space-y-0 divide-y divide-border">
+						{company.about.misi.map((item, i) => (
+							<div class="py-4 flex items-start gap-4">
+								<span class="text-[12px] font-semibold text-state tabular-nums mt-0.5">{String(i + 1).padStart(2, '0')}</span>
+								<p class="text-[15px] text-mute leading-relaxed">{item}</p>
+							</div>
+						))}
+					</div>
+				</div>
+
+				<!-- History timeline -->
+				<div class="mt-10">
+					<h3 class="text-[13px] font-semibold uppercase tracking-[0.12em] text-ink mb-5">Linimasa</h3>
+					<div class="space-y-0">
+						{company.history.map((item) => (
+							<div class="flex items-start gap-5 py-4 border-b border-border-soft last:border-0">
+								<span class="text-[13px] font-semibold text-teal tabular-nums shrink-0 w-12">{item.year}</span>
+								<div>
+									<h4 class="text-[15px] font-semibold text-ink">{item.title}</h4>
+									<p class="mt-1 text-[13px] text-mute leading-relaxed">{item.desc}</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

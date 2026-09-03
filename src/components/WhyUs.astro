@@ -1,48 +1,60 @@
 ---
 const reasons = [
 	{
-		title: 'Garansi Resmi',
-		desc: 'Semua produk bergaransi resmi dari distributor terpercaya, bukan barang gray market.',
+		num: '01',
+		title: 'Badan Hukum Resmi',
+		desc: 'Terdaftar sebagai CV dengan akta notaris — aman untuk kontrak pengadaan instansi dan tender pemerintah.',
 	},
 	{
-		title: 'Tim Bersertifikat',
-		desc: 'Teknisi dengan sertifikasi resmi dan pengalaman lapangan yang luas di bidang IT & keamanan.',
+		num: '02',
+		title: 'Teknisi Bersertifikat',
+		desc: 'Teknisi lapangan dengan sertifikasi relevan dan pengalaman langsung di bidang infrastruktur IT.',
 	},
 	{
-		title: 'Purna Jual Andal',
-		desc: 'Dukungan teknis, maintenance berkala, dan SLA yang jelas untuk ketenangan operasional Anda.',
+		num: '03',
+		title: 'Garansi & Purna Jual',
+		desc: 'Garansi produk resmi, perawatan terjadwal, dan SLA yang jelas untuk ketenangan operasional Anda.',
 	},
 	{
-		title: 'Legalitas Jelas',
-		desc: 'Perusahaan berbadan hukum CV dengan akta notaris — aman untuk kontrak pengadaan instansi.',
+		num: '04',
+		title: 'Pengadaan Transparan',
+		desc: 'Harga jujur dengan sumber distributor resmi — tanpa produk gray market, selamanya.',
+	},
+	{
+		num: '05',
+		title: 'Dukungan Perawatan',
+		desc: 'Dukungan teknis berkelanjutan dan pemeriksaan kesehatan sistem berkala, baik kontrak maupun on-demand.',
+	},
+	{
+		num: '06',
+		title: 'Dokumentasi Proyek',
+		desc: 'Dokumentasi proyek lengkap meliputi diagram jaringan, catatan konfigurasi, dan kartu garansi.',
 	},
 ];
 ---
 
-<section id="keunggulan" class="bg-canvas py-14 lg:py-20 border-t border-stone-200/60">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="max-w-2xl">
-			<p class="text-utility-xs uppercase tracking-[0.2em] text-mute mb-4">Keunggulan Kami</p>
-		<h2 class="text-heading-xl text-ink">Mengapa Memilih<br />CV Chilva Computer?</h2>
-		<p class="mt-5 text-body-lg text-mute leading-relaxed">
-			Kami menggabungkan pengadaan perangkat berkualitas, instalasi profesional, dan dukungan berkelanjutan dalam satu layanan terintegrasi — berpusat di Serang, Banten.
-		</p>
-		</div>
+<section id="keunggulan" class="bg-white py-16 lg:py-24">
+	<div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+			<div class="lg:col-span-4">
+				<p class="text-meta text-teal mb-4">KENAPA CHILVA</p>
+				<h2 class="text-display-sm text-ink">Dibangun atas Kepercayaan</h2>
+				<p class="mt-5 text-body-lg text-mute leading-relaxed max-w-sm">
+					Kami menggabungkan perangkat keras berkualitas, instalasi profesional, dan dukungan berkelanjutan dalam satu layanan terintegrasi.
+				</p>
+			</div>
 
-		<div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-			{
-				reasons.map((item) => (
-					<div class="flex items-start gap-4 p-6 rounded-2xl bg-stone-50 border border-stone-100">
-						<div class="flex-shrink-0 w-8 h-8 rounded-full bg-ink flex items-center justify-center">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+			<div class="lg:col-span-8">
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-border">
+					{reasons.map((item) => (
+						<div class="py-7 sm:px-8 first:sm:pl-0 last:sm:pr-0 group">
+							<span class="text-[12px] font-semibold text-teal tabular-nums">{item.num}</span>
+							<h3 class="mt-2 text-[16px] font-semibold text-ink">{item.title}</h3>
+							<p class="mt-2 text-[14px] text-mute leading-relaxed">{item.desc}</p>
 						</div>
-						<div>
-							<h3 class="text-[15px] font-semibold text-ink">{item.title}</h3>
-							<p class="mt-1.5 text-[14px] text-mute leading-relaxed">{item.desc}</p>
-						</div>
-					</div>
-				))
-			}
+					))}
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

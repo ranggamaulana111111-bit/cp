@@ -3,7 +3,7 @@ export const company = {
 	shortName: 'Chilva Computer',
 	legalName: 'CV. Chilva Computer',
 	legalStatus: 'CV',
-	tagline: 'IT & Security Provider',
+	tagline: 'IT Infrastructure & Security Solution Provider',
 	legal: {
 		type: 'Perseroan Komanditer (CV)',
 		director: 'ROSADI, S.Pd.I.',
@@ -19,25 +19,232 @@ export const company = {
 	hours: 'Senin - Jumat, 08.00 - 17.00 WIB',
 	mapUrl: 'https://maps.google.com/?q=Tamiang+Gunungsari+Serang+Banten',
 	whatsappUrl: `https://wa.me/${'6287771351338'}?text=${encodeURIComponent(
-		'Halo, saya ingin berkonsultasi mengenai proyek Pengadan Barang Dan IT bersama CV. Chilva Computer.'
+		'Halo, saya ingin berkonsultasi mengenai proyek Pengadaan Barang Dan IT bersama CV. Chilva Computer.'
 	)}`,
 	hero: {
-		headline: ['INFRASTRUKTUR', 'JARINGAN & CCTV', 'SOLUSI IT TERPADU'],
+		headline: 'MITRA PENGADAAN &\nINFRASTRUKTUR IT\nTERPERCAYA',
 		subHeadline:
-			'Mitra terpercaya pengadaan hardware, instalasi CCTV, dan optimasi jaringan untuk bisnis & instansi di Serang, Banten, dan seluruh Indonesia.',
-		primaryCta: 'KONSULTASI PROJEK',
+			'Mitra pengadaan barang & infrastruktur IT tepat guna — dari desain jaringan hingga sistem keamanan, kami membangun infrastruktur yang andal untuk menjaga bisnis Anda tetap terhubung dan terlindungi.',
+		primaryCta: 'Mulai Konsultasi',
 		primaryUrl: `https://wa.me/${'6287771351338'}?text=${encodeURIComponent(
 			'Halo, saya ingin berkonsultasi mengenai proyek IT bersama CV. Chilva Computer.'
 		)}`,
-		secondaryCta: 'Lihat Layanan',
-		secondaryUrl: '#layanan',
+		secondaryCta: 'Portofolio Proyek',
+		secondaryUrl: '#portofolio',
 	},
 	navLinks: [
-		{ label: 'Beranda', href: '#beranda' },
 		{ label: 'Layanan', href: '#layanan' },
+		{ label: 'Proyek', href: '#portofolio' },
 		{ label: 'Tentang', href: '#tentang' },
-		{ label: 'Portofolio', href: '#portofolio' },
+		{ label: 'Perusahaan', href: '#legalitas' },
 		{ label: 'Kontak', href: '#kontak' },
+	],
+	services: [
+		{
+			id: '01',
+			name: 'Infrastruktur IT',
+			shortDesc: 'Solusi infrastruktur menyeluruh untuk lingkungan enterprise.',
+			description:
+				'Desain, implementasi, dan pengelolaan infrastruktur IT lengkap — mulai dari kabel terstruktur hingga penataan server room. Kami memastikan sistem Anda dibangun di atas fondasi yang andal dan scalable.',
+		},
+		{
+			id: '02',
+			name: 'Jaringan & Fiber',
+			shortDesc: 'Jaringan berperforma tinggi dengan backbone fiber optik.',
+			description:
+				'Arsitektur LAN/WAN, instalasi fiber optik, managed switching, dan monitoring jaringan. Kami membangun jaringan yang memberikan performa konsisten di seluruh fasilitas Anda.',
+		},
+		{
+			id: '03',
+			name: 'Sistem Keamanan',
+			shortDesc: 'Solusi pengawasan dan kontrol akses yang komprehensif.',
+			description:
+				'Sistem kamera IP, implementasi NVR, integrasi kontrol akses, dan pengaturan monitoring 24/7. Keamanan tingkat enterprise yang dirancang sesuai kebutuhan operasional Anda.',
+		},
+		{
+			id: '04',
+			name: 'Server & Data Center',
+			shortDesc: 'Infrastruktur server yang andal dan pengelolaan data.',
+			description:
+				'Pengadaan server, penataan rack, virtualisasi, solusi backup, dan perawatan data center. Kami menjaga sistem kritikal Anda berjalan dengan uptime maksimal.',
+		},
+		{
+			id: '05',
+			name: 'Pengadaan IT',
+			shortDesc: 'Sumber perangkat keras dengan garansi resmi dan dukungan.',
+			description:
+				'Pengadaan transparan untuk server, workstation, peralatan jaringan, dan perlengkapan dari distributor resmi. Setiap produk dilengkapi garansi resmi dan dokumentasi lengkap.',
+		},
+		{
+			id: '06',
+			name: 'Dukungan Terkelola',
+			shortDesc: 'Perawatan berkala dan dukungan teknis berkelanjutan.',
+			description:
+				'Perawatan terjadwal, kontrak dukungan berbasis SLA, respons darurat, dan optimasi sistem. Kami memberikan perawatan berkelanjutan agar infrastruktur Anda tetap tampil prima.',
+		},
+	],
+	stats: [
+		{ value: '150+', label: 'Proyek Selesai' },
+		{ value: '800+', label: 'Kamera Terpasang' },
+		{ value: '120+', label: 'Klien' },
+		{ value: '99.9%', label: 'Ketersediaan' },
+	],
+	about: {
+		headline: 'DIBANGUN ATAS\nPRESISI.',
+		paragraphs: [
+			'CV. Chilva Computer adalah penyedia solusi infrastruktur IT dan keamanan yang berpusat di Serang, Banten. Kami berspesialisasi dalam penggelaran jaringan, sistem pengawasan, dan pengadaan perangkat keras untuk bisnis dan instansi pemerintah.',
+			'Dengan lebih dari 150 proyek selesai dan 120+ klien terlayani, kami telah membangun reputasi atas presisi teknis, praktik bisnis yang transparan, dan dukungan purna jual yang andal. Setiap proyek dikerjakan oleh teknisi bersertifikat dengan dokumentasi dan garansi yang lengkap.',
+		],
+		visi: 'Menjadi penyedia infrastruktur IT paling terpercaya di Indonesia, yang dikenal atas keunggulan teknis, integritas, dan kemitraan yang berkelanjutan.',
+		misi: [
+			'Menghadirkan solusi IT yang efisien dan akurat, disesuaikan dengan kebutuhan setiap klien.',
+			'Menjaga kualitas produk dengan garansi resmi dan distribusi resmi.',
+			'Membangun kemitraan jangka panjang melalui layanan yang profesional dan responsif.',
+			'Berkontribusi pada keamanan dan kemajuan digital bagi bisnis dan masyarakat.',
+		],
+		values: [
+			{
+				title: 'Profesional',
+				desc: 'Pekerjaan dilakukan dengan standar tertinggi, tepat waktu, dan berbadan hukum resmi.',
+				icon: 'briefcase',
+			},
+			{
+				title: 'Integritas',
+				desc: 'Penawaran transparan dan rekomendasi produk yang jujur — selalu.',
+				icon: 'shield',
+			},
+			{
+				title: 'Keandalan',
+				desc: 'Dukungan purna jual dan bantuan teknis tersedia saat Anda membutuhkannya.',
+				icon: 'wrench',
+			},
+			{
+				title: 'Inovasi',
+				desc: 'Terus mengikuti perkembangan teknologi untuk memberikan solusi terbaik.',
+				icon: 'lightbulb',
+			},
+		],
+		organization: [
+			{ role: 'Direktur Utama', name: 'ROSADI, S.Pd.I.' },
+			{ role: 'Komisaris', name: 'ILVA KHOIRUNNISA, S.Pd.I.' },
+			{ role: 'Manajer Operasional', name: '—' },
+			{ role: 'Manajer Teknis', name: '—' },
+			{ role: 'Divisi Pengadaan', name: '—' },
+			{ role: 'Divisi Jaringan & CCTV', name: '—' },
+		],
+	},
+	history: [
+		{
+			year: '2018',
+			title: 'Berdiri',
+			desc: 'CV. Chilva Computer didirikan dengan fokus awal pada pengadaan dan perakitan komputer.',
+		},
+		{
+			year: '2020',
+			title: 'Ekspansi Jaringan',
+			desc: 'Memperluas layanan ke instalasi LAN, Wi-Fi, dan optimasi internet.',
+		},
+		{
+			year: '2022',
+			title: 'Divisi Keamanan',
+			desc: 'Meluncurkan divisi khusus CCTV dan sistem keamanan.',
+		},
+		{
+			year: '2024',
+			title: 'Vendor Resmi',
+			desc: 'Menjadi vendor pengadaan IT resmi untuk instansi pemerintah dan enterprise.',
+		},
+		{
+			year: '2026',
+			title: '150+ Proyek',
+			desc: 'Pencapaian tonggak sejarah dengan 150+ proyek selesai dan 120+ klien terlayani.',
+		},
+	],
+	portfolio: [
+		{
+			title: 'INFRASTRUKTUR JARINGAN',
+			industry: 'Manufaktur',
+			location: 'Serang, Banten',
+			year: '2026',
+			service: 'Jaringan & Fiber',
+			technologies: ['MikroTik', 'Fiber Optik', 'Managed Switching', 'Monitoring'],
+			desc: 'Perombakan total jaringan untuk fasilitas manufaktur — kabel terstruktur, backbone fiber, dan monitoring real-time di 3 lantai produksi.',
+			category: 'Jaringan',
+		},
+		{
+			title: 'CCTV & KONTROL AKSES',
+			industry: 'Industri',
+			location: 'Kab. Serang',
+			year: '2025',
+			service: 'Sistem Keamanan',
+			technologies: ['Kamera IP', 'NVR', 'Kontrol Akses', 'Monitoring Jarak Jauh'],
+			desc: 'Sistem pengawasan 64 kamera dengan integrasi kontrol akses untuk area produksi dan pergudangan. Kapabilitas monitoring jarak jauh penuh.',
+			category: 'CCTV & Keamanan',
+		},
+		{
+			title: 'PENGEMBANGAN JARINGAN SEKOLAH',
+			industry: 'Pendidikan',
+			location: 'Serang, Banten',
+			year: '2025',
+			service: 'Infrastruktur IT',
+			technologies: ['Kabel Terstruktur', 'Access Point', 'Desain Jaringan', 'Perawatan'],
+			desc: 'Infrastruktur jaringan multi-gedung untuk 4 gedung kampus — kabel terstruktur, cakupan nirkabel, dan kontrak perawatan berkelanjutan.',
+			category: 'Jaringan',
+		},
+		{
+			title: 'PENGADAAN IT KANTOR',
+			industry: 'Korporat',
+			location: 'Serang, Banten',
+			year: '2024',
+			service: 'Pengadaan IT',
+			technologies: ['Server', 'Workstation', 'Networking', 'Garansi Resmi'],
+			desc: 'Pengadaan perangkat keras IT lengkap untuk kantor korporat — server, workstation, peralatan jaringan dengan dokumentasi garansi resmi.',
+			category: 'Pengadaan Hardware',
+		},
+	],
+	testimonials: [
+		{
+			quote:
+				'Pemasangan CCTV dan pengadaan perangkat ditangani dengan sangat profesional. Tim responsif dan hasilnya melebihi ekspektasi kami.',
+			name: 'Bpk. Andi Prasetyo',
+			role: 'Direktur',
+			company: 'PT. Sejahtera Utama',
+		},
+		{
+			quote:
+				'Penawaran transparan dengan produk bergaransi resmi. Proses pengadaan untuk instansi kami menjadi jauh lebih mudah dan akuntabel.',
+			name: 'Ibu Siti Rahayu',
+			role: 'Kepala Bagian Umum',
+			company: 'SMK Nusantara 2',
+		},
+		{
+			quote:
+				'Jaringan kantor kami kini stabil tanpa gangguan. SLA perawatan yang ditawarkan sangat membantu operasional sehari-hari.',
+			name: 'Bpk. Rizky Maulana',
+			role: 'Manajer Operasional',
+			company: 'CV. Karya Bangun',
+		},
+	],
+	contact: {
+		headline: "MARI BANGUN\nSESUATU YANG\nANDAL.",
+		subtext:
+			'Ceritakan kebutuhan infrastruktur teknologi Anda. Dari konsultasi hingga implementasi — tim kami siap merespons.',
+	},
+	partners: {
+		networking: ['MikroTik', 'Cisco', 'TP-Link', 'Ubiquiti'],
+		cctv: ['Hikvision', 'Dahua', 'UniView'],
+		server: ['Dell', 'HPE', 'Lenovo'],
+		storage: ['Synology', 'QNAP'],
+		computer: ['ASUS', 'Lenovo', 'HP'],
+		fiber: ['FiberHome', 'Huawei', 'BDCOM'],
+	},
+	process: [
+		{ step: '01', name: 'Konsultasi', desc: 'Memahami kebutuhan dan konteks bisnis Anda.' },
+		{ step: '02', name: 'Survey Lokasi', desc: 'Penilaian di lapangan dan evaluasi teknis.' },
+		{ step: '03', name: 'Proposal', desc: 'Ruang lingkup detail, jadwal, dan harga transparan.' },
+		{ step: '04', name: 'Implementasi', desc: 'Implementasi profesional oleh teknisi bersertifikat.' },
+		{ step: '05', name: 'Pengujian', desc: 'Quality assurance dan validasi performa.' },
+		{ step: '06', name: 'Dukungan', desc: 'Perawatan berkelanjutan dan cakupan garansi.' },
 	],
 	kbliCategories: [
 		{
@@ -101,164 +308,4 @@ export const company = {
 			desc: 'Jasa penunjang administrasi kantor, penyewaan mesin kantor, dan aktivitas khusus penunjang kantor lainnya.',
 		},
 	],
-	services: [
-		{
-			name: 'Pengadaan Hardware',
-			description:
-				'Pengadaan server, komputer, networking, dan perangkat IT lainnya dari merek terpercaya dengan jaminan garansi resmi. Melayani pengadaan barang IT untuk kantor, sekolah, dan instansi di Serang dan Banten.',
-		},
-		{
-			name: 'Instalasi CCTV 24/7',
-			description:
-				'Desain, instalasi, dan perawatan sistem pengawasan CCTV dengan kualitas gambar jernih yang dipantau nonstop. Jasa pemasangan CCTV terpercaya di Kota Serang, Kabupaten Serang, dan wilayah Banten lainnya.',
-		},
-		{
-			name: 'Optimasi Jaringan Internet',
-			description:
-				'Analisis dan optimasi jaringan agar koneksi internet kantor maupun industri stabil, cepat, dan aman. Spesialis instalasi jaringan LAN, Wi-Fi, dan Fiber Optic di area Serang dan sekitarnya.',
-		},
-	],
-	stats: [
-		{ value: '150+', label: 'Proyek IT Selesai' },
-		{ value: '800+', label: 'Kamera CCTV Terpasang' },
-		{ value: '99.9%', label: 'Uptime Jaringan' },
-		{ value: '120+', label: 'Klien Terlayani' },
-	],
-	about: {
-		headline: 'MITRA IT & SECURITY TERPERCAYA',
-		paragraphs: [
-			'CV. Chilva Computer adalah perusahaan penyedia solusi teknologi informasi dan keamanan yang berbadan hukum resmi di Serang, Banten. Kami berfokus pada pengadaan perangkat keras, instalasi dan perawatan CCTV, serta optimasi jaringan untuk mendukung operasional bisnis dan instansi.',
-			'Sejak berdiri di Kota Serang, kami telah dipercaya menangani lebih dari 150 proyek IT di wilayah Serang, Banten, dan sekitarnya — dari pemasangan sistem pengawasan hingga pembangunan infrastruktur jaringan berskala kantor maupun industri. Setiap layanan didukung teknisi bersertifikat, produk bergaransi resmi, dan layanan purna jual yang andal.',
-		],
-		visi: 'Menjadi penyedia solusi IT dan keamanan terdepan di Indonesia yang dikenal atas kualitas, keandalan, dan integritas dalam setiap layanan yang diberikan.',
-		misi: [
-			'Memberikan solusi IT yang efisien, akurat, dan sesuai kebutuhan klien.',
-			'Menjaga kualitas produk dan layanan dengan produk bergaransi resmi.',
-			'Membangun kemitraan jangka panjang melalui pelayanan yang profesional.',
-			'Berkontribusi pada keamanan dan kemajuan digital bagi masyarakat dan dunia usaha.',
-		],
-		values: [
-			{
-				title: 'Profesional',
-				desc: 'Bekerja dengan standar tinggi, tepat waktu, dan berbadan hukum resmi.',
-				icon: 'briefcase',
-			},
-			{
-				title: 'Integritas',
-				desc: 'Transparan dalam penawaran dan jujur dalam setiap rekomendasi produk.',
-				icon: 'shield',
-			},
-			{
-				title: 'Keandalan',
-				desc: 'Layanan purna jual dan dukungan teknis yang siap membantu kapan pun.',
-				icon: 'wrench',
-			},
-			{
-				title: 'Inovasi',
-				desc: 'Selalu mengikuti perkembangan teknologi untuk solusi terbaik.',
-				icon: 'lightbulb',
-			},
-		],
-		organization: [
-			{ role: 'Direktur Utama', name: 'ROSADI, S.Pd.I.' },
-			{ role: 'Komisaris', name: 'ILVA KHOIRUNNISA, S.Pd.I.' },
-			{ role: 'Manajer Operasional', name: '—' },
-			{ role: 'Manajer Teknis', name: '—' },
-			{ role: 'Divisi Pengadaan', name: '—' },
-			{ role: 'Divisi Jaringan & CCTV', name: '—' },
-		],
-	},
-	history: [
-		{
-			year: '2018',
-			title: 'Berdirinya CV. Chilva Computer',
-			desc: 'Perusahaan didirikan dengan fokus awal pada penjualan dan perakitan perangkat komputer.',
-		},
-		{
-			year: '2020',
-			title: 'Ekspansi ke Solusi Jaringan',
-			desc: 'Memperluas layanan ke instalasi jaringan lokal (LAN), Wi-Fi, dan optimasi internet.',
-		},
-		{
-			year: '2022',
-			title: 'Divisi CCTV & Keamanan',
-			desc: 'Meluncurkan divisi keamanan dengan layanan desain dan instalasi CCTV 24/7.',
-		},
-		{
-			year: '2024',
-			title: 'Vendor Resmi Instansi',
-			desc: 'Menjadi vendor resmi pengadaan barang/jasa IT bagi sekolah, kantor, dan instansi.',
-		},
-		{
-			year: '2026',
-			title: '150+ Proyek Terselesaikan',
-			desc: 'Mencapai tonggak sejarah dengan lebih dari 150 proyek dan 120+ klien terlayani.',
-		},
-	],
-	portfolio: [
-		{
-			title: 'Instalasi CCTV Kantor Pusat',
-			category: 'CCTV & Keamanan',
-			desc: 'Pemasangan 32 kamera IP beresolusi tinggi dengan NVR dan pemantauan jarak jauh 24/7.',
-			tags: ['CCTV', 'NVR', 'Monitoring'],
-		},
-		{
-			title: 'Jaringan LAN Sekolah',
-			category: 'Jaringan',
-			desc: 'Pembangunan infrastruktur jaringan terstruktur untuk 4 gedung sekolah dengan akses poin.',
-			tags: ['LAN', 'Access Point', 'Kabel FO'],
-		},
-		{
-			title: 'Pengadaan Server & Workstation',
-			category: 'Pengadaan Hardware',
-			desc: 'Pengadaan server, workstation, dan perangkat pendukung untuk perusahaan manufaktur.',
-			tags: ['Server', 'Workstation', 'Garansi Resmi'],
-		},
-		{
-			title: 'Pabrik Industri — Integrasi CCTV',
-			category: 'CCTV & Keamanan',
-			desc: 'Sistem pengawasan 64 kamera dengan access control di area produksi dan pergudangan.',
-			tags: ['CCTV', 'Access Control'],
-		},
-		{
-			title: 'Optimasi Internet Kantor & Co-working',
-			category: 'Jaringan',
-			desc: 'Perombakan topologi jaringan dan pengaturan bandwidth untuk 100+ pengguna aktif.',
-			tags: ['Router', 'Bandwidth', 'Wi-Fi'],
-		},
-		{
-			title: 'Maintenance Kontrak Tahunan',
-			category: 'Layanan Purna Jual',
-			desc: 'Kontrak perawatan berkala untuk jaringan, server, dan sistem CCTV beberapa klien korporat.',
-			tags: ['Maintenance', 'Support', 'SLA'],
-		},
-	],
-	testimonials: [
-		{
-			quote:
-				'Pemasangan CCTV dan pengadaan perangkat berjalan sangat profesional. Tim teknisnya cepat tanggap dan hasilnya melebihi ekspektasi kami.',
-			name: 'Bpk. Andi Prasetyo',
-			role: 'Direktur',
-			company: 'PT. Sejahtera Utama',
-		},
-		{
-			quote:
-				'Penawaran harga resmi yang transparan dan barang bergaransi asli. Proses pengadaan untuk instansi kami jadi jauh lebih mudah.',
-			name: 'Ibu Siti Rahayu',
-			role: 'Kepala Bagian Umum',
-			company: 'SMK Nusantara 2',
-		},
-		{
-			quote:
-				'Jaringan kantor kami kini stabil tanpa gangguan. SLA maintenance yang ditawarkan juga sangat membantu operasional sehari-hari.',
-			name: 'Bpk. Rizky Maulana',
-			role: 'Manager Operasional',
-			company: 'CV. Karya Bangun',
-		},
-	],
-	contact: {
-		headline: 'HUBUNGI KAMI',
-		subtext:
-			'Tertarik bekerja sama? Konsultasikan kebutuhan IT dan keamanan Anda bersama CV. Chilva Computer di Serang — tim kami siap merespons secepatnya.',
-	},
 };

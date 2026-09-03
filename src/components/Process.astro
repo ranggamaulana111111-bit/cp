@@ -1,0 +1,56 @@
+---
+import { company } from '../data/company';
+---
+
+<section class="bg-canvas py-16 lg:py-24">
+	<div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+			<div class="lg:col-span-4">
+				<p class="text-meta text-teal mb-4">PROSES</p>
+				<h2 class="text-display-sm text-ink">Cara Kami Bekerja</h2>
+				<p class="mt-5 text-body-lg text-mute leading-relaxed max-w-sm">
+					Pendekatan terstruktur untuk setiap proyek — dari konsultasi awal hingga dukungan berkelanjutan.
+				</p>
+			</div>
+
+			<div class="lg:col-span-8">
+				<!-- Desktop: horizontal timeline -->
+				<div class="hidden lg:grid grid-cols-6 gap-0">
+					{company.process.map((step, i) => (
+						<div class:list={[
+							'relative py-6',
+							i < 5 && 'border-r border-border-soft',
+						]}>
+							<div class="px-6">
+								<span class="text-[12px] font-semibold text-teal tabular-nums">{step.step}</span>
+								<h3 class="mt-2 text-[15px] font-semibold text-ink">{step.name}</h3>
+								<p class="mt-2 text-[13px] text-mute leading-relaxed">{step.desc}</p>
+							</div>
+							{i < 5 && (
+								<div class="process-dot absolute right-0 top-6 -translate-y-1/2 translate-x-1/2 w-2 h-2 rounded-full bg-teal"></div>
+							)}
+						</div>
+					))}
+				</div>
+
+				<!-- Mobile: vertical timeline -->
+				<div class="lg:hidden space-y-0">
+					{company.process.map((step, i) => (
+						<div class="flex items-start gap-5 py-5 border-b border-border-soft last:border-0">
+							<div class="flex flex-col items-center shrink-0">
+								<span class="text-[12px] font-semibold text-teal tabular-nums">{step.step}</span>
+								{i < company.process.length - 1 && (
+									<div class="w-px h-full bg-border-soft mt-2"></div>
+								)}
+							</div>
+							<div>
+								<h3 class="text-[15px] font-semibold text-ink">{step.name}</h3>
+								<p class="mt-1 text-[13px] text-mute leading-relaxed">{step.desc}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

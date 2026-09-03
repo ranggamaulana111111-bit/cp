@@ -2,35 +2,75 @@
 import { company } from '../data/company';
 ---
 
-<section id="portofolio" class="bg-canvas py-14 lg:py-20 border-t border-stone-200/60">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="max-w-2xl">
-			<p class="text-utility-xs uppercase tracking-[0.2em] text-mute mb-4">Portofolio</p>
-			<h2 class="text-heading-xl text-ink">Proyek yang Telah<br />Kami Kerjakan</h2>
-			<p class="mt-5 text-body-lg text-mute leading-relaxed">
-				Sebagian proyek pengerjaan pengadaan, jaringan, dan keamanan yang telah kami selesaikan.
-			</p>
+<section id="portofolio" class="bg-white py-16 lg:py-24">
+	<div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+		<div class="flex items-end justify-between mb-12 lg:mb-16">
+			<div>
+				<p class="text-meta text-teal mb-4">PROYEK PILIHAN</p>
+				<h2 class="js-accent-line text-display-sm text-ink pb-2">Terbukti di Lapangan</h2>
+			</div>
+			<a href="#kontak" class="hidden sm:inline-flex items-center gap-2 text-[13px] font-semibold text-mute hover:text-ink transition-colors uppercase tracking-wide">
+				Lihat Semua
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+			</a>
 		</div>
 
-		<div class="mt-10 space-y-0 divide-y divide-stone-200/60">
-			{
-				company.portfolio.map((project) => (
-					<article class="group js-reveal py-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-colors">
-						<div class="flex-1 min-w-0">
-							<div class="flex items-center gap-3 mb-2">
-								<span class="text-[13px] font-medium text-stone-400 uppercase tracking-wider">{project.category}</span>
+		<div class="space-y-16 lg:space-y-24">
+			{company.portfolio.map((project, index) => (
+				<article class:list={[
+					'grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center',
+					index % 2 !== 0 && 'lg:direction-rtl',
+				]}>
+					<!-- Image placeholder -->
+					<div class:list={[
+						'lg:col-span-7',
+						index % 2 !== 0 && 'lg:order-2',
+					]}>
+						<div class:list={[
+							'aspect-[16/10] rounded-lg overflow-hidden',
+							index === 0 && 'bg-teal/8',
+							index === 1 && 'bg-rose/8',
+							index === 2 && 'bg-sand/10',
+							index === 3 && 'bg-stone-warm/50',
+						]}>
+							<div class="w-full h-full flex items-center justify-center p-8">
+								<div class="text-center">
+									<span class="text-[64px] font-extrabold text-ink/[0.04]">{project.year}</span>
+									<p class="text-meta text-state mt-2">{project.service}</p>
+								</div>
 							</div>
-							<h3 class="text-body-strong text-ink group-hover:underline underline-offset-4">{project.title}</h3>
-							<p class="mt-1.5 text-body-md text-mute">{project.desc}</p>
 						</div>
-						<div class="flex items-center gap-1.5 shrink-0">
-							{project.tags.map((tag) => (
-								<span class="inline-block text-[12px] font-medium text-stone-400 bg-stone-100 px-2.5 py-1 rounded-full">{tag}</span>
+					</div>
+
+					<!-- Content -->
+					<div class:list={[
+						'lg:col-span-5',
+						index % 2 !== 0 && 'lg:order-1 lg:text-right',
+					]}>
+						<div class:list={['flex items-center gap-3 mb-4', index % 2 !== 0 && 'justify-end']}>
+							<span class="text-[12px] font-semibold text-state uppercase tracking-wider">{project.industry}</span>
+							<span class="w-1 h-1 rounded-full bg-border"></span>
+							<span class="text-[12px] font-semibold text-state">{project.location}</span>
+						</div>
+
+						<h3 class="text-[20px] font-bold text-ink leading-tight tracking-tight">{project.title}</h3>
+						<p class="mt-3 text-[14px] text-mute leading-relaxed">{project.desc}</p>
+
+						<div class:list={['mt-4 flex flex-wrap gap-2', index % 2 !== 0 && 'justify-end']}>
+							{project.technologies.map((tech) => (
+								<span class="text-[11px] font-medium text-state bg-stone-warm/50 px-2.5 py-1 rounded-sm uppercase tracking-wider">{tech}</span>
 							))}
 						</div>
-					</article>
-				))
-			}
+
+						<div class:list={['mt-6', index % 2 !== 0 && 'flex justify-end']}>
+							<span class="inline-flex items-center gap-2 text-[13px] font-semibold text-ink">
+								Lihat Studi Kasus
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+							</span>
+						</div>
+					</div>
+				</article>
+			))}
 		</div>
 	</div>
 </section>
